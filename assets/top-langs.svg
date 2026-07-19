@@ -22,7 +22,7 @@
     <g class="fade" style="animation-delay:0.2s">
       <circle cx="31" cy="104" r="6" fill="#3572A5"/>
       <text x="45" y="108" class="lname">Python</text>
-      <text x="210" y="108" class="lpct" text-anchor="end">79.4%</text>
+      <text x="210" y="108" class="lpct" text-anchor="end">79.3%</text>
     </g>
     <g class="fade" style="animation-delay:0.30000000000000004s">
       <circle cx="241" cy="104" r="6" fill="#f1e05a"/>
