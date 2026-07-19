@@ -6,11 +6,13 @@ $map = @{
   "v1" = "README.v1-signature.md"; "signature" = "README.v1-signature.md"
   "v2" = "README.v2-editorial.md"; "editorial" = "README.v2-editorial.md"
   "v3" = "README.v3-terminal.md";  "terminal"  = "README.v3-terminal.md"
+  "v4" = "README.v4-noir.md";      "noir"      = "README.v4-noir.md"
+  "v5" = "README.v5-azure.md";     "azure"     = "README.v5-azure.md"
 }
 
 $key = $Version.ToLower()
 if (-not $map.ContainsKey($key)) {
-  Write-Host "Unknown version '$Version'. Choose: v1 (signature) | v2 (editorial) | v3 (terminal)" -ForegroundColor Red
+  Write-Host "Unknown version '$Version'. Choose: v1 (signature) | v2 (editorial) | v3 (terminal) | v4 (noir) | v5 (azure)" -ForegroundColor Red
   exit 1
 }
 

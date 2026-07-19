@@ -1,0 +1,18 @@
+<svg width="850" height="232" viewBox="0 0 850 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rithvick Kumar — AI/ML, Full-Stack, Backend Engineer">
+<defs><style>
+  .f{animation:fi .9s ease both}.d1{animation-delay:.1s}.d2{animation-delay:.28s}.d3{animation-delay:.46s}.d4{animation-delay:.64s}
+  @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .eye{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:12px;fill:#767D89;letter-spacing:3.4px}
+  .name{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:54px;fill:#EEF1F5;letter-spacing:-1.2px}
+  .role{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:15.5px;fill:#B0B6C0}
+  .meta{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:13px;fill:#767D89;letter-spacing:.2px}
+</style></defs>
+  <rect width="850" height="232" fill="#0A0B0D"/>
+  <g class="f d1"><rect x="42" y="40" width="7" height="7" rx="1" fill="#6C90C0"/><text class="eye" x="59" y="47">AI / ML  —  FULL-STACK  —  BACKEND</text></g>
+  <text class="name f d2" x="41" y="108">Rithvick Kumar</text>
+  <rect class="f d2" x="42" y="124" width="58" height="2" rx="1" fill="#6C90C0"><animate attributeName="width" from="0" to="58" dur="1s" begin=".5s" fill="freeze"/></rect>
+  <text class="role f d3" x="42" y="150">I ship production AI systems end to end — LLM &amp; RAG pipelines, agents,</text>
+  <text class="role f d3" x="42" y="174">and the APIs around them.</text>
+  <line class="f d4" x1="42" y1="208" x2="808" y2="208" stroke="#1D2027"/>
+  <text class="meta f d4" x="42" y="232">B.Tech, NIT Kurukshetra &#8217;26   ·   Gemini CLI contributor   ·   Available for work</text>
+</svg>

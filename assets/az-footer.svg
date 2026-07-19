@@ -1,0 +1,6 @@
+<svg width="850" height="66" viewBox="0 0 850 66" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="footer">
+<defs><style>.l{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:12.5px;fill:#767D89;letter-spacing:.4px}.r{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:12px;fill:#6C90C0;letter-spacing:2px}</style></defs>
+  <line x1="42" y1="20" x2="808" y2="20" stroke="#1D2027"/>
+  <text class="l" x="42" y="46">© 2026 Rithvick Kumar</text>
+  <text class="r" x="808" y="46" text-anchor="end">NEVER GIVE UP</text>
+</svg>

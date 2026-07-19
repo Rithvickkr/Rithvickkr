@@ -3,13 +3,13 @@
   Swap live with:  scripts/use-version.ps1 v1   (or ./scripts/use-version.sh v1)
 -->
 
-<!-- ==================== HEADER ==================== -->
+<!-- ==================== HERO ==================== -->
 <a href="https://github.com/Rithvickkr">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:06B6D4,50:6366F1,100:8B5CF6&height=200&section=header&text=Rithvick%20Kumar&fontSize=52&fontColor=FFFFFF&fontAlignY=36&desc=AI%2FML%20%C2%B7%20Full-Stack%20%C2%B7%20Backend%20%E2%80%94%20I%20ship%20production%20AI%20systems&descAlignY=58&descSize=16&animation=fadeIn" alt="header" />
+  <img width="100%" src="./assets/sig-hero.svg" alt="Rithvick Kumar — AI/ML · Full-Stack · Backend Engineer" />
 </a>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=06B6D4&center=true&vCenter=true&width=700&lines=AI%2FML+%C2%B7+Full-Stack+%C2%B7+Backend+Engineer;Building+LLM%2C+RAG+%26+agent+pipelines;Gemini+CLI+contributor+(2+P1+bugs+fixed);NIT+Kurukshetra+'26+%C2%B7+I+ship+to+production." alt="typing" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=19&duration=2800&pause=900&color=9AA0A8&center=true&vCenter=true&width=700&lines=Building+LLM%2C+RAG+%26+agent+pipelines;Gemini+CLI+contributor+(2+P1+bugs+fixed);ContextVolt+%E2%80%94+local-first+AI+context+manager;NIT+Kurukshetra+'26+%C2%B7+I+ship+to+production." alt="typing" />
 </p>
 
 <!-- ==================== SOCIALS ==================== -->

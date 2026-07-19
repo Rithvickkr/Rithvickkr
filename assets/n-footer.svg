@@ -1,0 +1,5 @@
+<svg width="850" height="92" viewBox="0 0 850 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="footer">
+<defs><style>.q{font-family:Georgia, 'Times New Roman', Times, serif;font-weight:400;font-size:16px;font-style:italic;fill:#7C8288}.h{font-family:'Helvetica Neue', Arial, 'Segoe UI', sans-serif;font-weight:700;font-size:13px;fill:#F4F6F8;letter-spacing:3px}</style></defs>
+  <line x1="0" y1="26" x2="850" y2="26" stroke="#26282B" stroke-width="1"/>
+  <text class="q" x="425" y="62" text-anchor="middle">Thanks for scrolling — let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
+</svg>

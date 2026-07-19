@@ -7,18 +7,19 @@ import { writeFile, mkdir } from "node:fs/promises";
 const LOGIN = process.env.GH_LOGIN || "Rithvickkr";
 const TOKEN = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 
-// ---- theme -----------------------------------------------------------------
-const T = {
-  bg: "#0D1117",
-  card: "#0D1117",
-  border: "url(#accent)",
-  cyan: "#06B6D4",
-  indigo: "#6366F1",
-  violet: "#8B5CF6",
-  text: "#C9D1D9",
-  muted: "#8B949E",
-  track: "#21262D",
-  font: "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif",
+// ---- themes ----------------------------------------------------------------
+const SANS = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif";
+const COLOR = {
+  card: "#0D1117", stops: ["#06B6D4", "#6366F1", "#8B5CF6"],
+  num: "#06B6D4", text: "#C9D1D9", muted: "#8B949E", track: "#21262D",
+  serif: SANS, sans: SANS, ramp: null,
+};
+const NOIR = {
+  card: "#0F1011", stops: ["#3A3E42", "#9AA0A6", "#F4F6F8"],
+  num: "#F4F6F8", text: "#C7CCD1", muted: "#7C8288", track: "#1A1C1E",
+  serif: "Georgia, 'Times New Roman', Times, serif",
+  sans: "'Helvetica Neue', Arial, 'Segoe UI', sans-serif",
+  ramp: ["#F4F6F8", "#B9BEC3", "#868B90", "#5C6166", "#3A3E42", "#2A2E31"],
 };
 
 // ---- data ------------------------------------------------------------------
@@ -69,10 +70,10 @@ const fmt = (n) =>
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-const FALLBACK_COLORS = [T.cyan, T.violet, T.indigo, "#22D3EE", "#A78BFA", "#818CF8"];
+const FALLBACK_COLORS = ["#06B6D4", "#8B5CF6", "#6366F1", "#22D3EE", "#A78BFA", "#818CF8"];
 
 // ---- stats card ------------------------------------------------------------
-function statsCard(u) {
+function statsCard(u, t = COLOR) {
   const totalStars = u.repositories.nodes.reduce((s, r) => s + r.stargazerCount, 0);
   const commits =
     u.contributionsCollection.totalCommitContributions +
@@ -104,17 +105,17 @@ function statsCard(u) {
   return `<svg width="450" height="200" viewBox="0 0 450 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub statistics for ${esc(u.login)}">
   <defs>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${T.cyan}"/><stop offset="0.5" stop-color="${T.indigo}"/><stop offset="1" stop-color="${T.violet}"/>
+      <stop offset="0" stop-color="${t.stops[0]}"/><stop offset="0.5" stop-color="${t.stops[1]}"/><stop offset="1" stop-color="${t.stops[2]}"/>
     </linearGradient>
     <style>
       .fade { animation: rise 0.7s ease both; }
       @keyframes rise { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
-      .num { font: 700 26px ${T.font}; fill: ${T.cyan}; }
-      .lbl { font: 400 12px ${T.font}; fill: ${T.muted}; }
-      .title { font: 700 18px ${T.font}; fill: ${T.text}; }
+      .num { font: 700 26px ${t.serif}; fill: ${t.num}; }
+      .lbl { font: 400 12px ${t.sans}; fill: ${t.muted}; letter-spacing:.4px; }
+      .title { font: 700 18px ${t.serif}; fill: ${t.text}; }
     </style>
   </defs>
-  <rect x="1" y="1" width="448" height="198" rx="12" fill="${T.card}" stroke="url(#accent)" stroke-width="1.5"/>
+  <rect x="1" y="1" width="448" height="198" rx="12" fill="${t.card}" stroke="url(#accent)" stroke-width="1.5"/>
   <text x="25" y="42" class="title">${esc(u.name || u.login)} · GitHub Stats</text>
   <rect x="25" y="52" width="52" height="3" rx="1.5" fill="url(#accent)"/>
   ${items}
@@ -122,7 +123,7 @@ function statsCard(u) {
 }
 
 // ---- languages card --------------------------------------------------------
-function langCard(u) {
+function langCard(u, t = COLOR) {
   const totals = new Map();
   const colors = new Map();
   for (const repo of u.repositories.nodes) {
@@ -138,7 +139,7 @@ function langCard(u) {
     .map(([name, size], i) => ({
       name,
       pct: (size / sum) * 100,
-      color: colors.get(name) || FALLBACK_COLORS[i % FALLBACK_COLORS.length],
+      color: t.ramp ? t.ramp[i % t.ramp.length] : (colors.get(name) || FALLBACK_COLORS[i % FALLBACK_COLORS.length]),
     }));
 
   // stacked bar
@@ -173,28 +174,28 @@ function langCard(u) {
   return `<svg width="450" height="200" viewBox="0 0 450 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Most used languages for ${esc(u.login)}">
   <defs>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${T.cyan}"/><stop offset="0.5" stop-color="${T.indigo}"/><stop offset="1" stop-color="${T.violet}"/>
+      <stop offset="0" stop-color="${t.stops[0]}"/><stop offset="0.5" stop-color="${t.stops[1]}"/><stop offset="1" stop-color="${t.stops[2]}"/>
     </linearGradient>
     <clipPath id="reveal"><rect x="${barX}" y="${barY}" width="${barW}" height="${barH}"><animate attributeName="width" dur="1s" begin="0.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1" values="0;${barW}"/></rect></clipPath>
     <clipPath id="round"><rect x="${barX}" y="${barY}" width="${barW}" height="${barH}" rx="5.5"/></clipPath>
     <style>
       .fade { animation: rise 0.7s ease both; }
       @keyframes rise { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
-      .title { font: 700 18px ${T.font}; fill: ${T.text}; }
-      .lname { font: 600 13px ${T.font}; fill: ${T.text}; }
-      .lpct  { font: 400 13px ${T.font}; fill: ${T.muted}; }
+      .title { font: 700 18px ${t.serif}; fill: ${t.text}; }
+      .lname { font: 600 13px ${t.sans}; fill: ${t.text}; }
+      .lpct  { font: 400 13px ${t.sans}; fill: ${t.muted}; }
     </style>
   </defs>
-  <rect x="1" y="1" width="448" height="198" rx="12" fill="${T.card}" stroke="url(#accent)" stroke-width="1.5"/>
+  <rect x="1" y="1" width="448" height="198" rx="12" fill="${t.card}" stroke="url(#accent)" stroke-width="1.5"/>
   <text x="25" y="42" class="title">Most Used Languages</text>
   <rect x="25" y="52" width="52" height="3" rx="1.5" fill="url(#accent)"/>
-  <rect x="${barX}" y="${barY}" width="${barW}" height="${barH}" rx="5.5" fill="${T.track}"/>
+  <rect x="${barX}" y="${barY}" width="${barW}" height="${barH}" rx="5.5" fill="${t.track}"/>
   <g clip-path="url(#round)"><g clip-path="url(#reveal)">${segs}</g></g>
   ${legend}
 </svg>`;
 }
 
-export { statsCard, langCard };
+export { statsCard, langCard, COLOR, NOIR };
 
 // ---- main ------------------------------------------------------------------
 // Only runs when executed directly (not when imported for tests).
@@ -205,7 +206,9 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
   }
   const user = await fetchData();
   await mkdir("assets", { recursive: true });
-  await writeFile("assets/stats.svg", statsCard(user), "utf8");
-  await writeFile("assets/top-langs.svg", langCard(user), "utf8");
-  console.log("Generated assets/stats.svg and assets/top-langs.svg");
+  await writeFile("assets/stats.svg", statsCard(user, COLOR), "utf8");
+  await writeFile("assets/top-langs.svg", langCard(user, COLOR), "utf8");
+  await writeFile("assets/stats-noir.svg", statsCard(user, NOIR), "utf8");
+  await writeFile("assets/top-langs-noir.svg", langCard(user, NOIR), "utf8");
+  console.log("Generated color + noir stat cards in assets/");
 }

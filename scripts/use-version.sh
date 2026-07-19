@@ -7,7 +7,9 @@ case "${1:-}" in
   v1|signature) SRC="README.v1-signature.md" ;;
   v2|editorial) SRC="README.v2-editorial.md" ;;
   v3|terminal)  SRC="README.v3-terminal.md" ;;
-  *) echo "Unknown version '${1:-}'. Choose: v1 (signature) | v2 (editorial) | v3 (terminal)"; exit 1 ;;
+  v4|noir)      SRC="README.v4-noir.md" ;;
+  v5|azure)     SRC="README.v5-azure.md" ;;
+  *) echo "Unknown version '${1:-}'. Choose: v1 (signature) | v2 (editorial) | v3 (terminal) | v4 (noir) | v5 (azure)"; exit 1 ;;
 esac
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

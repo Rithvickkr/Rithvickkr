@@ -1,0 +1,13 @@
+<svg width="850" height="66" viewBox="0 0 850 66" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contributions">
+<defs>
+  <style>
+    .f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
+    .ttl{font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700;font-size:24px;fill:#F4F6F8;letter-spacing:3.2px}
+    .rn{font-family:Georgia, 'Times New Roman', Times, serif;font-weight:400;font-size:15px;font-style:italic;fill:#7C8288}
+  </style>
+</defs>
+  <text class="ttl f" x="42" y="40">CONTRIBUTIONS</text>
+  <rect x="282" y="34" width="492" height="1" fill="#33363A"><animate attributeName="width" from="0" to="492" dur="1s" begin=".3s" fill="freeze" calcMode="spline" keySplines="0.3 0 0.2 1" keyTimes="0;1" values="0;492"/></rect>
+  <text class="rn f" x="808" y="40" text-anchor="end">vi</text>
+  <line x1="42" y1="58" x2="808" y2="58" stroke="#26282B" stroke-width="1"/>
+</svg>

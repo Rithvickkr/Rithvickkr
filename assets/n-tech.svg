@@ -1,0 +1,47 @@
+<svg width="850" height="254" viewBox="0 0 850 254" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tech stack">
+<defs>
+  <style>
+    .row{animation:ri .7s ease both}@keyframes ri{from{opacity:0;transform:translateX(-5px)}to{opacity:1;transform:translateX(0)}}
+    .lab{font-family:'Helvetica Neue', Arial, 'Segoe UI', sans-serif;font-weight:600;font-size:12px;fill:#7C8288;letter-spacing:2.4px}
+    .val{font-family:'Helvetica Neue', Arial, 'Segoe UI', sans-serif;font-weight:400;font-size:14.5px;fill:#C7CCD1}
+    .dot{fill:#4A4E53}
+  </style>
+</defs>
+  
+  <g class="row" style="animation-delay:0.12s">
+    <rect x="42" y="31" width="7" height="7" fill="#F4F6F8"/>
+    <text class="lab" x="64" y="42">AI / ML</text>
+    <text class="val" x="202" y="42">PyTorch  <tspan class="dot">·</tspan>  TensorFlow  <tspan class="dot">·</tspan>  LangChain  <tspan class="dot">·</tspan>  RAG  <tspan class="dot">·</tspan>  MCP  <tspan class="dot">·</tspan>  Hugging Face  <tspan class="dot">·</tspan>  Vertex AI  <tspan class="dot">·</tspan>  Ollama</text>
+    <line x1="42" y1="56" x2="808" y2="56" stroke="#ffffff" stroke-opacity="0.03"/>
+  </g>
+  <g class="row" style="animation-delay:0.2s">
+    <rect x="42" y="69" width="7" height="7" fill="#F4F6F8"/>
+    <text class="lab" x="64" y="80">LANGUAGES</text>
+    <text class="val" x="202" y="80">Python  <tspan class="dot">·</tspan>  TypeScript  <tspan class="dot">·</tspan>  JavaScript  <tspan class="dot">·</tspan>  Java  <tspan class="dot">·</tspan>  C</text>
+    <line x1="42" y1="94" x2="808" y2="94" stroke="#ffffff" stroke-opacity="0.03"/>
+  </g>
+  <g class="row" style="animation-delay:0.28s">
+    <rect x="42" y="107" width="7" height="7" fill="#F4F6F8"/>
+    <text class="lab" x="64" y="118">BACKEND</text>
+    <text class="val" x="202" y="118">FastAPI  <tspan class="dot">·</tspan>  Node.js  <tspan class="dot">·</tspan>  Express  <tspan class="dot">·</tspan>  WebRTC  <tspan class="dot">·</tspan>  WebSockets  <tspan class="dot">·</tspan>  OAuth 2.0  <tspan class="dot">·</tspan>  Nginx</text>
+    <line x1="42" y1="132" x2="808" y2="132" stroke="#ffffff" stroke-opacity="0.03"/>
+  </g>
+  <g class="row" style="animation-delay:0.36s">
+    <rect x="42" y="145" width="7" height="7" fill="#F4F6F8"/>
+    <text class="lab" x="64" y="156">FRONTEND</text>
+    <text class="val" x="202" y="156">React  <tspan class="dot">·</tspan>  Next.js  <tspan class="dot">·</tspan>  Tailwind CSS  <tspan class="dot">·</tspan>  Three.js</text>
+    <line x1="42" y1="170" x2="808" y2="170" stroke="#ffffff" stroke-opacity="0.03"/>
+  </g>
+  <g class="row" style="animation-delay:0.44s">
+    <rect x="42" y="183" width="7" height="7" fill="#F4F6F8"/>
+    <text class="lab" x="64" y="194">DATA</text>
+    <text class="val" x="202" y="194">PostgreSQL  <tspan class="dot">·</tspan>  SQLite  <tspan class="dot">·</tspan>  sqlite-vec  <tspan class="dot">·</tspan>  MongoDB  <tspan class="dot">·</tspan>  Supabase  <tspan class="dot">·</tspan>  Prisma  <tspan class="dot">·</tspan>  FAISS</text>
+    <line x1="42" y1="208" x2="808" y2="208" stroke="#ffffff" stroke-opacity="0.03"/>
+  </g>
+  <g class="row" style="animation-delay:0.52s">
+    <rect x="42" y="221" width="7" height="7" fill="#F4F6F8"/>
+    <text class="lab" x="64" y="232">TOOLING</text>
+    <text class="val" x="202" y="232">Git  <tspan class="dot">·</tspan>  Docker  <tspan class="dot">·</tspan>  GitHub Actions  <tspan class="dot">·</tspan>  Vercel  <tspan class="dot">·</tspan>  Weights &amp; Biases  <tspan class="dot">·</tspan>  MLflow</text>
+    <line x1="42" y1="246" x2="808" y2="246" stroke="#ffffff" stroke-opacity="0.03"/>
+  </g>
+</svg>

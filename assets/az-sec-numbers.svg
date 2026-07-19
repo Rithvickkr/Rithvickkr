@@ -1,0 +1,5 @@
+<svg width="850" height="40" viewBox="0 0 850 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="By the Numbers">
+<defs><style>.k{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:12px;fill:#6C90C0;letter-spacing:2.6px}</style></defs>
+  <text class="k" x="42" y="26">BY THE NUMBERS</text>
+  <line x1="188.20000000000002" y1="21" x2="808" y2="21" stroke="#1D2027"><animate attributeName="x2" from="188.20000000000002" to="808" dur="1s" begin=".2s" fill="freeze" calcMode="spline" keySplines="0.3 0 0.2 1" keyTimes="0;1" values="188.20000000000002;808"/></line>
+</svg>

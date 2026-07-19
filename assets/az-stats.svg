@@ -1,0 +1,11 @@
+<svg width="850" height="96" viewBox="0 0 850 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="By the numbers">
+<defs><style>
+  .s{animation:fi .7s ease both}@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .num{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:36px;fill:#6C90C0;letter-spacing:-1px}
+  .lbl{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:500;font-size:11px;fill:#767D89;letter-spacing:1.4px}
+</style></defs>
+  <g class="s" style="animation-delay:0.1s"><text class="num" x="42" y="52">746</text><text class="lbl" x="42" y="76">CONTRIBUTIONS</text></g>
+  <g class="s" style="animation-delay:0.2s"><text class="num" x="233.5" y="52">36</text><text class="lbl" x="233.5" y="76">REPOSITORIES</text></g>
+  <g class="s" style="animation-delay:0.30000000000000004s"><text class="num" x="425" y="52">2</text><text class="lbl" x="425" y="76">P1 BUGS FIXED</text></g>
+  <g class="s" style="animation-delay:0.4s"><text class="num" x="616.5" y="52">3</text><text class="lbl" x="616.5" y="76">INTERNSHIPS</text></g>
+</svg>
