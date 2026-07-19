@@ -16,11 +16,11 @@
   <rect x="25" y="52" width="52" height="3" rx="1.5" fill="url(#accent)"/>
   
     <g class="fade" style="animation-delay:0.15s">
-      <text x="95" y="112" class="num" text-anchor="middle">5</text>
+      <text x="95" y="112" class="num" text-anchor="middle">7</text>
       <text x="95" y="132" class="lbl" text-anchor="middle">Total Stars</text>
     </g>
     <g class="fade" style="animation-delay:0.25s">
-      <text x="245" y="112" class="num" text-anchor="middle">36</text>
+      <text x="245" y="112" class="num" text-anchor="middle">29</text>
       <text x="245" y="132" class="lbl" text-anchor="middle">Repositories</text>
     </g>
     <g class="fade" style="animation-delay:0.35s">
@@ -28,15 +28,15 @@
       <text x="395" y="132" class="lbl" text-anchor="middle">Followers</text>
     </g>
     <g class="fade" style="animation-delay:0.45000000000000007s">
-      <text x="95" y="172" class="num" text-anchor="middle">852</text>
+      <text x="95" y="172" class="num" text-anchor="middle">183</text>
       <text x="95" y="192" class="lbl" text-anchor="middle">Commits (2026)</text>
     </g>
     <g class="fade" style="animation-delay:0.55s">
-      <text x="245" y="172" class="num" text-anchor="middle">24</text>
+      <text x="245" y="172" class="num" text-anchor="middle">16</text>
       <text x="245" y="192" class="lbl" text-anchor="middle">Pull Requests</text>
     </g>
     <g class="fade" style="animation-delay:0.65s">
-      <text x="395" y="172" class="num" text-anchor="middle">746</text>
+      <text x="395" y="172" class="num" text-anchor="middle">207</text>
       <text x="395" y="192" class="lbl" text-anchor="middle">Contributions</text>
     </g>
 </svg>
