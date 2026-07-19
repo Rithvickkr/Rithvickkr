@@ -1,18 +1,18 @@
 <!--
   Rithvick Kumar — GitHub Profile README
   Theme: sleek dark (#0D1117) with an electric cyan→violet accent
-  Sections: Header · Typing · Socials · About · Tech · Stats · Projects · Snake · Footer
+  Positioning: AI/ML · Full-Stack · Backend — ships production AI systems
 -->
 
 <!-- ==================== HEADER ==================== -->
 <a href="https://github.com/Rithvickkr">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:06B6D4,50:6366F1,100:8B5CF6&height=200&section=header&text=Rithvick%20Kumar&fontSize=52&fontColor=FFFFFF&fontAlignY=36&desc=Full-Stack%20Developer%20%C2%B7%20Building%20products%20that%20ship&descAlignY=58&descSize=18&animation=fadeIn" alt="header" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:06B6D4,50:6366F1,100:8B5CF6&height=200&section=header&text=Rithvick%20Kumar&fontSize=52&fontColor=FFFFFF&fontAlignY=36&desc=AI%2FML%20%C2%B7%20Full-Stack%20%C2%B7%20Backend%20%E2%80%94%20I%20ship%20production%20AI%20systems&descAlignY=58&descSize=16&animation=fadeIn" alt="header" />
 </a>
 
 <!-- ==================== TYPING ==================== -->
 <p align="center">
   <a href="https://github.com/Rithvickkr">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=06B6D4&center=true&vCenter=true&width=680&lines=Full-Stack+Developer+%7C+TypeScript+%2B+Next.js;Turning+ideas+into+real%2C+shipped+products;Real-time+apps%2C+WebRTC+%26+AI+workspaces;Always+building.+Never+give+up." alt="typing" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=06B6D4&center=true&vCenter=true&width=700&lines=AI%2FML+%C2%B7+Full-Stack+%C2%B7+Backend+Engineer;Building+LLM%2C+RAG+%26+agent+pipelines;Gemini+CLI+contributor+(2+P1+bugs+fixed);NIT+Kurukshetra+'26+%C2%B7+I+ship+to+production." alt="typing" />
   </a>
 </p>
 
@@ -21,7 +21,6 @@
   <a href="https://linkedin.com/in/rithvick-kumar"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://twitter.com/rithvickkr027"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white" alt="Twitter" /></a>
   <a href="https://mail.google.com/mail/?view=cm&to=rithvickkumar27@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  <a href="https://founderly.tech"><img src="https://img.shields.io/badge/Portfolio-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
 </p>
 
 <p align="center">
@@ -35,26 +34,32 @@
 <!-- ==================== ABOUT ==================== -->
 ## <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28"> &nbsp;About Me
 
-```typescript
-const rithvick = {
-  role: "Full-Stack Developer",
-  focus: ["Web & Real-time Apps", "AI-powered Products", "DX & Performance"],
-  stack: {
-    languages: ["TypeScript", "JavaScript", "Python", "Java"],
-    frontend:  ["React", "Next.js", "Tailwind", "Framer Motion"],
-    backend:   ["Node.js", "Express", "WebRTC", "Socket.io"],
-    data:      ["PostgreSQL", "Prisma", "MongoDB", "Supabase"],
-  },
-  currentlyBuilding: "Founderly — an AI startup workspace",
-  motto: "NEVER GIVE UP",
-};
+```python
+class Rithvick:
+    def __init__(self):
+        self.role       = "AI/ML · Full-Stack · Backend Engineer"
+        self.education  = "B.Tech, NIT Kurukshetra ('26)"
+        self.builds     = ["LLM & RAG pipelines", "agent tooling", "MCP servers", "the APIs around them"]
+        self.flagship   = "ContextVolt — local-first AI context manager"
+        self.claim      = "Every feature I shipped last internship reached production."
+        self.motto      = "NEVER GIVE UP"
 ```
 
-- 🚀 &nbsp;I build end-to-end products — from **real-time video platforms** to **AI cofounder tools**.
-- 🧩 &nbsp;Comfortable across the stack: **React/Next** on the front, **Node + Postgres** on the back.
-- 🌱 &nbsp;Currently deep in **AI product engineering** and **real-time systems (WebRTC)**.
-- 🤝 &nbsp;Open to **collaboration** on ambitious open-source and startup ideas.
-- 💬 &nbsp;Ask me about **Next.js, TypeScript, WebRTC, or shipping fast**.
+- 🧠 &nbsp;I build **production AI systems end to end** — retrieval pipelines, agents, and the backends that serve them.
+- 🐍 &nbsp;Fixed **2 priority-P1 bugs** in **Google's Gemini CLI** (OOM buffer overflow + symlink handling in file search).
+- 🔬 &nbsp;Shipped AI to production at **Dobbe.ai** (dental-X-ray detection UI + FastAPI CV backend) and a **Rocket.Chat AI FAQ bot**.
+- 🌱 &nbsp;Deep in **RAG, MCP, fine-tuning (Gemini/GoEmotions), and local-first AI**.
+- 🤝 &nbsp;Open to **collaboration** on ambitious AI / open-source work. Ask me about **RAG, MCP, LLMs, or FastAPI**.
+
+<br />
+
+<!-- ==================== HIGHLIGHTS ==================== -->
+## <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="26"> &nbsp;Highlights
+
+- 🏆 &nbsp;**Google · Gemini CLI** — reported 6 issues, authored fixes for **2 P1 bugs** (buffer-size guards across PTY/child-process paths; symlink resolution with cycle protection + ripgrep follow-mode).
+- 🦷 &nbsp;**Dobbe.ai (Intern)** — built the AI-detection UI overlaying segmentation masks on dental X-rays and the FastAPI services taking CV features from PoC → **production**.
+- 💬 &nbsp;**Rocket.Chat** — shipped an AI bot that detects FAQs in channel traffic and surfaces LLM answers to moderators.
+- 🎓 &nbsp;**B.Tech, National Institute of Technology, Kurukshetra** — 2026.
 
 <br />
 
@@ -63,28 +68,53 @@ const rithvick = {
 
 <table align="center">
   <tr>
-    <td align="center"><strong>Languages</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=ts,js,python,java,c,rust" alt="languages" /></td>
+    <td align="center"><strong>AI / ML</strong></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn" alt="ai" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="langchain" />
+      <img src="https://img.shields.io/badge/RAG-8B5CF6?style=flat-square" alt="rag" />
+      <img src="https://img.shields.io/badge/MCP-06B6D4?style=flat-square" alt="mcp" />
+      <img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="hf" />
+      <img src="https://img.shields.io/badge/Vertex%20AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="vertex" />
+      <img src="https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white" alt="ollama" />
+    </td>
   </tr>
   <tr>
-    <td align="center"><strong>Frontend</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=react,nextjs,angular,tailwind,vite,figma" alt="frontend" /></td>
+    <td align="center"><strong>Languages</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=python,ts,js,java,c" alt="languages" /></td>
   </tr>
   <tr>
     <td align="center"><strong>Backend</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=nodejs,express,prisma,redis,postman" alt="backend" /></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=fastapi,nodejs,express,nginx" alt="backend" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/WebSockets-010101?style=flat-square&logo=socketdotio&logoColor=white" alt="ws" />
+      <img src="https://img.shields.io/badge/WebRTC-333333?style=flat-square&logo=webrtc&logoColor=white" alt="webrtc" />
+      <img src="https://img.shields.io/badge/OAuth%202.0-EB5424?style=flat-square&logo=auth0&logoColor=white" alt="oauth" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Frontend</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,threejs" alt="frontend" /></td>
   </tr>
   <tr>
     <td align="center"><strong>Data</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=postgresql,mongodb,firebase" alt="data" /></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=postgresql,sqlite,mongodb,supabase,prisma" alt="data" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/FAISS-0467DF?style=flat-square&logo=meta&logoColor=white" alt="faiss" />
+      <img src="https://img.shields.io/badge/ChromaDB-FFCA28?style=flat-square" alt="chroma" />
+    </td>
   </tr>
   <tr>
-    <td align="center"><strong>DevOps &amp; Cloud</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=docker,aws,vercel,prometheus,grafana" alt="devops" /></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Tools</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=git,github,vscode,npm,bun,pnpm" alt="tools" /></td>
+    <td align="center"><strong>Tooling</strong></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=git,docker,githubactions,vercel,cloudflare" alt="tooling" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/W%26B-FFBE00?style=flat-square&logo=weightsandbiases&logoColor=black" alt="wandb" />
+      <img src="https://img.shields.io/badge/MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white" alt="mlflow" />
+    </td>
   </tr>
 </table>
 
@@ -102,14 +132,10 @@ const rithvick = {
   <img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rithvickkr&layout=donut&hide_border=true&title_color=06B6D4&text_color=C9D1D9&bg_color=0D1117&langs_count=8" alt="top-langs" />
 </p>
 
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Rithvickkr&theme=onedark&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" alt="trophies" />
-</p>
-
 <br />
 
 <!-- ==================== FEATURED PROJECTS ==================== -->
-## <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="28"> &nbsp;Featured Projects
+## <img src="https://media.giphy.com/media/hpXdHkCEModD6TUxV3/giphy.gif" width="28"> &nbsp;Featured Projects
 
 <table>
   <tr>
@@ -119,22 +145,28 @@ const rithvick = {
     <th align="left">Links</th>
   </tr>
   <tr>
-    <td valign="top"><strong>🚀 Founderly</strong></td>
-    <td valign="top">AI startup workspace that turns raw ideas into structured blueprints, investor-ready pitch decks, an AI cofounder, and outreach campaigns — end to end.</td>
-    <td valign="top">Next.js 15 · React 19 · Supabase · Three.js</td>
+    <td valign="top"><strong>⚡ ContextVolt</strong><br /><em>flagship</em></td>
+    <td valign="top">Privacy-first desktop app that captures, summarizes & indexes conversations from <strong>6 major LLMs</strong>. Hybrid retrieval (sqlite-vec + FTS5/BM25 + entity index) with listwise LLM reranking powers a RAG "Ask Your Vault" with inline citations. Ships a read-only <strong>MCP server</strong> over stdio/HTTP.</td>
+    <td valign="top">Python · FastAPI · sqlite-vec · MCP · OAuth 2.0 · Ollama</td>
+    <td valign="top"><a href="https://github.com/Rithvickkr/ContextVolt">Code</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>🫶 Empathetic AI Chatbot</strong></td>
+    <td valign="top">Fine-tuned Gemini 2.5 on GoEmotions to detect user emotion and respond in Hinglish, steered by a novel <strong>Empathy Index (E-Score)</strong>.</td>
+    <td valign="top">Gemini 2.5 · Vertex AI · Hugging Face</td>
+    <td valign="top"><a href="https://github.com/Rithvickkr">Code</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>🚀 Foundrly</strong></td>
+    <td valign="top">AI startup-idea validator & pitch-deck generator — turns raw ideas into blueprints, decks and outreach campaigns.</td>
+    <td valign="top">LangChain · Llama 3 · Next.js</td>
     <td valign="top"><a href="https://founderly.tech">Live</a> · <a href="https://github.com/Rithvickkr/Foundrly">Code</a></td>
   </tr>
   <tr>
-    <td valign="top"><strong>🎥 SKizify</strong></td>
-    <td valign="top">Secure, scalable video-meeting platform with WebRTC video/audio, screen share, whiteboard, chat and recording for remote teams.</td>
-    <td valign="top">Next.js · WebRTC · Socket.io · Postgres · Prisma</td>
+    <td valign="top"><strong>🎥 SkiziFy</strong></td>
+    <td valign="top">P2P skill marketplace with real-time WebRTC video calling and scheduling.</td>
+    <td valign="top">Next.js · WebRTC · Prisma · Postgres</td>
     <td valign="top"><a href="https://skizify-liart.vercel.app">Live</a> · <a href="https://github.com/Rithvickkr/skizify">Code</a></td>
-  </tr>
-  <tr>
-    <td valign="top"><strong>⚡ ContextVolt</strong></td>
-    <td valign="top">Save and summarize AI conversations across different LLMs — local-first and self-hosted for full privacy.</td>
-    <td valign="top">TypeScript · Self-hosted · MIT</td>
-    <td valign="top"><a href="https://github.com/Rithvickkr/ContextVolt">Code</a></td>
   </tr>
 </table>
 
