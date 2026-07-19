@@ -21,13 +21,13 @@
 
 <img width="100%" src="./assets/sig-sec-about.svg" alt="About Me" />
 
-I'm an **AI/ML · Full-Stack · Backend** engineer who builds **production AI systems end to end** — LLM &amp; RAG pipelines, agent tooling, and MCP servers, plus the FastAPI / Node backends that serve them. My flagship, **ContextVolt**, is a local-first AI context manager built on a hybrid retrieval pipeline. I care about systems that actually ship — robust, measured, and running in prod — and I'm currently deep in **RAG, MCP, and fine-tuning**, open to collaboration on ambitious AI &amp; open-source work.
+I'm an **AI/ML · Full-Stack · Backend** engineer who builds **production AI systems end to end**: LLM &amp; RAG pipelines, agent tooling, and MCP servers, plus the FastAPI / Node backends that serve them. My flagship, **ContextVolt**, is a local-first AI context manager built on a hybrid retrieval pipeline. I care about systems that actually ship (robust, measured, and running in prod), and I'm currently deep in **RAG, MCP, and fine-tuning**, open to collaboration on ambitious AI &amp; open-source work.
 
 **Recent highlights**
 
-- **Google · Gemini CLI** — reported 6 issues and authored fixes for **2 priority-P1 bugs** (OOM buffer overflow + symlink handling)
-- **Dobbe.ai** — shipped an AI dental-X-ray detection UI + FastAPI backend to **production**
-- **Rocket.Chat** — built an AI FAQ bot that surfaces LLM-generated answers to moderators
+- **Google · Gemini CLI** &nbsp;·&nbsp; reported 6 issues and authored fixes for **2 priority-P1 bugs** (OOM buffer overflow + symlink handling)
+- **Dobbe.ai** &nbsp;·&nbsp; shipped an AI dental-X-ray detection UI + FastAPI backend to **production**
+- **Rocket.Chat** &nbsp;·&nbsp; built an AI FAQ bot that surfaces LLM-generated answers to moderators
 
 <br />
 

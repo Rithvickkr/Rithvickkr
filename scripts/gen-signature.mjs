@@ -7,35 +7,58 @@ const F = (w, s) => `font-family:${SANS};font-weight:${w};font-size:${s}px`;
 const C = { bg: "#0D1117", ink: "#F0F1F3", txt: "#C9D1D9", mut: "#8B949E", dim: "#3A3F46", line: "#23262D", acc: "#6C90C0" };
 const est = (s, size, ls = 0) => s.length * size * 0.55 + (s.length - 1) * ls;
 const cx = W / 2;
-const bracket = (x, y, dx, dy) => `<path d="M ${x + dx} ${y} L ${x} ${y} L ${x} ${y + dy}" stroke="${C.line}" stroke-width="1" fill="none"/>`;
-const hero = () => `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rithvick Kumar — AI/ML · Full-Stack · Backend Engineer">
+const rnd = (a, b) => a + Math.random() * (b - a);
+const hero = () => {
+  const HH = 300, m = 14, right = W - m, bottom = HH - m;
+  // snowfall
+  const flakes = Array.from({ length: 46 }, () => {
+    const x = rnd(m + 4, right - 4).toFixed(1), y = rnd(m + 4, HH - 70).toFixed(1);
+    const r = rnd(0.7, 1.9).toFixed(2), dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.3, 0.75).toFixed(2);
+    return `<circle class="sn" cx="${x}" cy="${y}" r="${r}" fill="#DCE3EC" opacity="${op}" style="animation-duration:${dur}s;animation-delay:${del}s"/>`;
+  }).join("");
+  return `<svg width="${W}" height="${HH}" viewBox="0 0 ${W} ${HH}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rithvick Kumar — AI/ML, Full-Stack, Backend Engineer">
 <defs>
-  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.4" cy="1.4" r="1.4" fill="#1B2028"/></pattern>
-  <radialGradient id="fade" cx="50%" cy="46%" r="62%"><stop offset="0" stop-color="#000"/><stop offset="0.72" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient>
-  <mask id="vgn"><rect width="${W}" height="${H}" fill="url(#fade)"/></mask>
+  <clipPath id="scene"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${HH - 2 * m}" rx="9"/></clipPath>
+  <radialGradient id="moon" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#20293380"/><stop offset="1" stop-color="#20293300"/></radialGradient>
   <style>
-    .f{animation:fi 1s ease both}.d1{animation-delay:.1s}.d2{animation-delay:.3s}.d3{animation-delay:.55s}
+    .f{animation:fi 1s ease both}.d1{animation-delay:.15s}.d2{animation-delay:.35s}.d3{animation-delay:.6s}
     @keyframes fi{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-    .kick{${F(600, 12)};fill:#6B7079;letter-spacing:3.6px}
-    .name{${F(600, 56)};fill:#F0F1F3;letter-spacing:-1.2px}
-    .tag{${F(400, 15.5)};fill:#AEB4BE}
-    .sub{${F(400, 13)};fill:#767C85;letter-spacing:.3px}
-    .bk{opacity:0;animation:fi 1.2s .2s ease forwards}
+    .sn{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}
+    @keyframes fall{0%{transform:translateY(-14px);opacity:0}14%{opacity:.7}86%{opacity:.7}100%{transform:translateY(66px);opacity:0}}
+    .kick{${F(600, 12)};fill:#7A828E;letter-spacing:3.6px}
+    .name{${F(600, 56)};fill:#F4F6F8;letter-spacing:-1.2px}
+    .tag{${F(400, 15.5)};fill:#B7BEC8}
+    .sub{${F(400, 13)};fill:#828A96;letter-spacing:.3px}
   </style>
 </defs>
-  <rect width="${W}" height="${H}" fill="#0D1117"/>
-  <rect width="${W}" height="${H}" fill="url(#dots)" mask="url(#vgn)"/>
-  <g class="bk">${bracket(24, 24, 16, 16)}${bracket(W - 24, 24, -16, 16)}${bracket(24, H - 24, 16, -16)}${bracket(W - 24, H - 24, -16, -16)}</g>
-  <text class="kick f d1" x="${cx}" y="66" text-anchor="middle">AI / ML  ·  FULL-STACK  ·  BACKEND ENGINEER</text>
-  <text class="name f d2" x="${cx}" y="126" text-anchor="middle">Rithvick Kumar</text>
-  <g class="f d2">
-    <line x1="${cx - 54}" y1="150" x2="${cx - 13}" y2="150" stroke="#2A2D33" stroke-width="1"/>
-    <path d="M ${cx} 146 L ${cx + 4} 150 L ${cx} 154 L ${cx - 4} 150 Z" fill="${C.acc}"/>
-    <line x1="${cx + 13}" y1="150" x2="${cx + 54}" y2="150" stroke="#2A2D33" stroke-width="1"/>
+  <rect width="${W}" height="${HH}" fill="#0D1117"/>
+  <g clip-path="url(#scene)">
+    <rect x="${m}" y="${m}" width="${W - 2 * m}" height="${HH - 2 * m}" fill="#0B0F15"/>
+    <circle cx="688" cy="74" r="60" fill="url(#moon)"/>
+    <circle cx="688" cy="74" r="15" fill="#161C25"/>
+    <!-- mountains: back, mid, front(Everest) -->
+    <path d="M ${m} ${bottom} L ${m} 248 L 150 224 L 300 250 L 470 214 L 620 244 L 760 220 L ${right} 242 L ${right} ${bottom} Z" fill="#141A22"/>
+    <path d="M ${m} ${bottom} L ${m} 262 L 120 244 L 260 266 L 410 240 L 560 262 L 690 244 L ${right} 264 L ${right} ${bottom} Z" fill="#10151C"/>
+    <path d="M ${m} ${bottom} L ${m} 270 L 130 256 L 250 272 L 360 258 L 470 268 L 560 250 L 628 258 L 662 196 L 700 250 L 786 244 L ${right} 262 L ${right} ${bottom} Z" fill="#0A0E13"/>
+    <path d="M 640 224 L 662 196 L 684 224 L 672 220 L 662 210 L 652 220 Z" fill="#39424E"/>
+    ${flakes}
   </g>
-  <text class="tag f d3" x="${cx}" y="188" text-anchor="middle">I ship production AI systems — LLM &amp; RAG pipelines, agents, and the APIs around them.</text>
+  <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${HH - 2 * m - 1}" rx="9" fill="none" stroke="${C.line}" stroke-width="1"/>
+  <path d="M ${m + 16} ${m} L ${m} ${m} L ${m} ${m + 16}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M ${right - 16} ${m} L ${right} ${m} L ${right} ${m + 16}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M ${m + 16} ${bottom} L ${m} ${bottom} L ${m} ${bottom - 16}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M ${right - 16} ${bottom} L ${right} ${bottom} L ${right} ${bottom - 16}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <text class="kick f d1" x="${cx}" y="70" text-anchor="middle">AI / ML  ·  FULL-STACK  ·  BACKEND ENGINEER</text>
+  <text class="name f d2" x="${cx}" y="128" text-anchor="middle">Rithvick Kumar</text>
+  <g class="f d2">
+    <line x1="${cx - 54}" y1="152" x2="${cx - 13}" y2="152" stroke="#2E333B" stroke-width="1"/>
+    <path d="M ${cx} 148 L ${cx + 4} 152 L ${cx} 156 L ${cx - 4} 152 Z" fill="${C.acc}"/>
+    <line x1="${cx + 13}" y1="152" x2="${cx + 54}" y2="152" stroke="#2E333B" stroke-width="1"/>
+  </g>
+  <text class="tag f d3" x="${cx}" y="188" text-anchor="middle">I ship production AI systems: LLM &amp; RAG pipelines, agents, and the APIs around them.</text>
   <text class="sub f d3" x="${cx}" y="212" text-anchor="middle">B.Tech, NIT Kurukshetra &#8217;26  ·  Gemini CLI contributor</text>
 </svg>`;
+};
 
 // ---------- CENTERED SECTION DIVIDER ----------
 const secLabel = (title) => {
@@ -83,7 +106,7 @@ const footer = () => `<svg width="${W}" height="84" viewBox="0 0 ${W} 84" xmlns=
   .q{${F(400, 14)};fill:${C.mut};letter-spacing:.3px}.h{${F(700, 13)};fill:${C.ink};letter-spacing:2.6px}
 </style></defs>
   <line class="f" x1="${LM}" y1="30" x2="${W - LM}" y2="30" stroke="${C.line}"/>
-  <text class="q f" x="${cx}" y="62" text-anchor="middle">Thanks for scrolling — let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
+  <text class="q f" x="${cx}" y="62" text-anchor="middle">Thanks for scrolling. Let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
 </svg>`;
 
 const files = {
