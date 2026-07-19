@@ -17,7 +17,7 @@
   <text x="25" y="42" class="title">Most Used Languages</text>
   <rect x="25" y="52" width="52" height="3" rx="1.5" fill="url(#accent)"/>
   <rect x="25" y="66" width="400" height="11" rx="5.5" fill="#21262D"/>
-  <g clip-path="url(#round)"><g clip-path="url(#reveal)"><rect x="25.0" y="66" width="317.5" height="11" fill="#3572A5"/><rect x="342.5" y="66" width="58.8" height="11" fill="#f1e05a"/><rect x="401.3" y="66" width="7.3" height="11" fill="#3178c6"/><rect x="408.6" y="66" width="7.1" height="11" fill="#fedf5b"/><rect x="415.8" y="66" width="3.8" height="11" fill="#663399"/><rect x="419.5" y="66" width="2.0" height="11" fill="#555555"/></g></g>
+  <g clip-path="url(#round)"><g clip-path="url(#reveal)"><rect x="25.0" y="66" width="317.4" height="11" fill="#3572A5"/><rect x="342.4" y="66" width="58.9" height="11" fill="#f1e05a"/><rect x="401.3" y="66" width="7.3" height="11" fill="#3178c6"/><rect x="408.6" y="66" width="7.1" height="11" fill="#fedf5b"/><rect x="415.8" y="66" width="3.8" height="11" fill="#663399"/><rect x="419.5" y="66" width="2.0" height="11" fill="#555555"/></g></g>
   
     <g class="fade" style="animation-delay:0.2s">
       <circle cx="31" cy="104" r="6" fill="#3572A5"/>
