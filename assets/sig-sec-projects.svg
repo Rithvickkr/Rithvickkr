@@ -1,8 +1,8 @@
 <svg width="850" height="44" viewBox="0 0 850 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Featured Projects">
 <defs><style>.k{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:12.5px;fill:#F0F1F3;letter-spacing:3px}.f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}</style></defs>
   <line class="f" x1="42" y1="23" x2="322.5625" y2="23" stroke="#23262D"/>
-  <circle class="f" cx="313.5625" cy="23" r="1.5" fill="#3A3F46"/>
+  <path class="f" d="M 313.5625 20 L 316.5625 23 L 313.5625 26 L 310.5625 23 Z" fill="#6C90C0"/>
   <text class="k f" x="425" y="28" text-anchor="middle">FEATURED PROJECTS</text>
-  <circle class="f" cx="536.4375" cy="23" r="1.5" fill="#3A3F46"/>
+  <path class="f" d="M 536.4375 20 L 539.4375 23 L 536.4375 26 L 533.4375 23 Z" fill="#6C90C0"/>
   <line class="f" x1="527.4375" y1="23" x2="808" y2="23" stroke="#23262D"/>
 </svg>

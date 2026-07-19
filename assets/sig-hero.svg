@@ -1,5 +1,8 @@
 <svg width="850" height="240" viewBox="0 0 850 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rithvick Kumar — AI/ML · Full-Stack · Backend Engineer">
 <defs>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.4" cy="1.4" r="1.4" fill="#1B2028"/></pattern>
+  <radialGradient id="fade" cx="50%" cy="46%" r="62%"><stop offset="0" stop-color="#000"/><stop offset="0.72" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient>
+  <mask id="vgn"><rect width="850" height="240" fill="url(#fade)"/></mask>
   <style>
     .f{animation:fi 1s ease both}.d1{animation-delay:.1s}.d2{animation-delay:.3s}.d3{animation-delay:.55s}
     @keyframes fi{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
@@ -7,15 +10,18 @@
     .name{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:56px;fill:#F0F1F3;letter-spacing:-1.2px}
     .tag{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:15.5px;fill:#AEB4BE}
     .sub{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:13px;fill:#767C85;letter-spacing:.3px}
+    .bk{opacity:0;animation:fi 1.2s .2s ease forwards}
   </style>
 </defs>
   <rect width="850" height="240" fill="#0D1117"/>
+  <rect width="850" height="240" fill="url(#dots)" mask="url(#vgn)"/>
+  <g class="bk"><path d="M 40 24 L 24 24 L 24 40" stroke="#23262D" stroke-width="1" fill="none"/><path d="M 810 24 L 826 24 L 826 40" stroke="#23262D" stroke-width="1" fill="none"/><path d="M 40 216 L 24 216 L 24 200" stroke="#23262D" stroke-width="1" fill="none"/><path d="M 810 216 L 826 216 L 826 200" stroke="#23262D" stroke-width="1" fill="none"/></g>
   <text class="kick f d1" x="425" y="66" text-anchor="middle">AI / ML  ·  FULL-STACK  ·  BACKEND ENGINEER</text>
   <text class="name f d2" x="425" y="126" text-anchor="middle">Rithvick Kumar</text>
   <g class="f d2">
-    <line x1="373" y1="150" x2="413" y2="150" stroke="#2A2D33" stroke-width="1"/>
-    <circle cx="425" cy="150" r="2.5" fill="#4A4F57"/>
-    <line x1="437" y1="150" x2="477" y2="150" stroke="#2A2D33" stroke-width="1"/>
+    <line x1="371" y1="150" x2="412" y2="150" stroke="#2A2D33" stroke-width="1"/>
+    <path d="M 425 146 L 429 150 L 425 154 L 421 150 Z" fill="#6C90C0"/>
+    <line x1="438" y1="150" x2="479" y2="150" stroke="#2A2D33" stroke-width="1"/>
   </g>
   <text class="tag f d3" x="425" y="188" text-anchor="middle">I ship production AI systems — LLM &amp; RAG pipelines, agents, and the APIs around them.</text>
   <text class="sub f d3" x="425" y="212" text-anchor="middle">B.Tech, NIT Kurukshetra &#8217;26  ·  Gemini CLI contributor</text>
