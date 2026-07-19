@@ -18,16 +18,15 @@
 
 <!-- ==================== SOCIALS ==================== -->
 <p align="center">
-  <a href="https://linkedin.com/in/rithvick-kumar" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>&nbsp;
-  <a href="https://x.com/rithvickkr027" target="_blank"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>&nbsp;
-  <a href="mailto:rithvickkumar27@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>&nbsp;
-  <a href="https://github.com/Rithvickkr" target="_blank"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>&nbsp;
-  <a href="https://founderly.tech" target="_blank"><img src="https://img.shields.io/badge/Portfolio-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://linkedin.com/in/rithvick-kumar" target="_blank"><img height="34" src="./assets/social-linkedin.svg" alt="LinkedIn" /></a>&nbsp;
+  <a href="https://x.com/rithvickkr027" target="_blank"><img height="34" src="./assets/social-x.svg" alt="X" /></a>&nbsp;
+  <a href="mailto:rithvickkumar27@gmail.com"><img height="34" src="./assets/social-gmail.svg" alt="Gmail" /></a>&nbsp;
+  <a href="https://github.com/Rithvickkr" target="_blank"><img height="34" src="./assets/social-github.svg" alt="GitHub" /></a>&nbsp;
+  <a href="https://rithvick.online" target="_blank"><img height="34" src="./assets/social-portfolio.svg" alt="Portfolio" /></a>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Rithvickkr&style=for-the-badge&label=Profile+Views&labelColor=0D1117&color=8B5CF6" alt="Profile Views" />&nbsp;
-  <a href="https://github.com/Rithvickkr?tab=followers"><img src="https://img.shields.io/github/followers/Rithvickkr?logo=github&style=for-the-badge&logoColor=white&labelColor=0D1117&color=06B6D4" alt="Followers" /></a>
+  <img src="https://komarev.com/ghpvc/?username=Rithvickkr&style=for-the-badge&label=Profile+Views&labelColor=0D1117&color=8B5CF6" alt="Profile Views" />
 </p>
 
 <br />
