@@ -286,7 +286,7 @@ function contribMountains(u, t = MONO) {
   const peakIdx = totals.indexOf(max);
   const W = 850, H = 232, m = 6, px = 36, right = W - m, bottom = H - m;
   const x0 = px, x1 = W - px, plotW = x1 - x0;
-  const baseY = H - m - 32, topY = m + 58, plotH = baseY - topY;
+  const baseY = H - m - 32, topY = m + 58, ceil = topY + 34, plotH = baseY - ceil;
   const X = (i) => x0 + (i / (totals.length - 1)) * plotW;
   const Y = (v) => baseY - (v / max) * plotH;
   const pt = (v, i, dy = 0) => `${X(i).toFixed(1)} ${(Y(v) + dy).toFixed(1)}`;
@@ -294,16 +294,22 @@ function contribMountains(u, t = MONO) {
   const ridgeLine = `M ${totals.map((v, i) => pt(v, i)).join(" L ")}`;
   const smooth = totals.map((_, i) => (totals[Math.max(0, i - 1)] + totals[i] + totals[Math.min(totals.length - 1, i + 1)]) / 3);
   const backPath = `M ${x0} ${baseY} L ${smooth.map((v, i) => pt(v, i, 13)).join(" L ")} L ${x1} ${baseY} Z`;
-  const snowY = topY + plotH * 0.3;
+  const snowY = ceil + plotH * 0.3;
   // month axis
   const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   let lastMon = -1; const ticks = [];
   firstDays.forEach((d, i) => { if (!d) return; const mo = new Date(d + "T00:00:00Z").getUTCMonth(); if (mo !== lastMon) { ticks.push({ x: X(i), label: MON[mo] }); lastMon = mo; } });
   const monthLabels = ticks.map(({ x, label }) => `<text class="mo" x="${Math.min(Math.max(x, x0 + 10), x1 - 10).toFixed(1)}" y="${baseY + 19}" text-anchor="middle">${label}</text>`).join("");
   const monthMarks = ticks.map(({ x }) => `<line x1="${x.toFixed(1)}" y1="${baseY}" x2="${x.toFixed(1)}" y2="${baseY + 4}" stroke="${t.muted}" stroke-opacity="0.3"/>`).join("");
-  // busiest-week marker
-  const peakX = X(peakIdx), peakY = Y(max);
-  const peakMark = `<circle cx="${peakX.toFixed(1)}" cy="${peakY.toFixed(1)}" r="2.2" fill="#6C90C0"/><text class="pk" x="${peakX.toFixed(1)}" y="${(peakY - 8).toFixed(1)}" text-anchor="middle">${max}/wk</text>`;
+  // summit flag on the tallest peak
+  const peakX = X(peakIdx), peakY = Y(max), poleTop = peakY - 22;
+  const labelRight = peakX < W - 120, lx = labelRight ? peakX + 17 : peakX - 6, anchor = labelRight ? "start" : "end";
+  const peakMark =
+    `<line x1="${peakX.toFixed(1)}" y1="${peakY.toFixed(1)}" x2="${peakX.toFixed(1)}" y2="${baseY}" stroke="#6C90C0" stroke-opacity="0.3" stroke-dasharray="2 3"/>` +
+    `<line x1="${peakX.toFixed(1)}" y1="${peakY.toFixed(1)}" x2="${peakX.toFixed(1)}" y2="${poleTop.toFixed(1)}" stroke="#DCE3EC" stroke-width="1.5"/>` +
+    `<path d="M ${peakX.toFixed(1)} ${poleTop.toFixed(1)} L ${(peakX + 15).toFixed(1)} ${(poleTop + 5).toFixed(1)} L ${peakX.toFixed(1)} ${(poleTop + 10).toFixed(1)} Z" fill="#6C90C0"/>` +
+    `<circle cx="${peakX.toFixed(1)}" cy="${peakY.toFixed(1)}" r="2.6" fill="#DCE3EC"/>` +
+    `<text class="pkn" x="${lx.toFixed(1)}" y="${(poleTop + 9).toFixed(1)}" text-anchor="${anchor}">${max}</text>`;
   const rnd = (a, b) => a + Math.random() * (b - a);
   const flakes = Array.from({ length: 24 }, () => {
     const x = rnd(m + 8, right - 8).toFixed(1), y = rnd(m + 6, topY + 6).toFixed(1), r = rnd(0.7, 1.6).toFixed(2);
@@ -325,7 +331,7 @@ function contribMountains(u, t = MONO) {
     .sub{font:400 10.5px ${t.sans};fill:${t.muted};letter-spacing:.3px}
     .tot{font:700 12px ${t.sans};fill:${t.text};letter-spacing:.3px}
     .mo{font:500 9.5px ${t.sans};fill:${t.muted};letter-spacing:.6px}
-    .pk{font:600 9.5px ${t.sans};fill:#8AA6C8;letter-spacing:.3px}
+    .pkn{font:700 10px ${t.sans};fill:#AEC4E0;letter-spacing:.2px}
     </style>
   </defs>
   <rect width="${W}" height="${H}" fill="#0D1117"/>
@@ -334,7 +340,7 @@ function contribMountains(u, t = MONO) {
     ${flakes}
     <path d="${backPath}" fill="#0E141C"/>
     <path d="${frontPath}" fill="url(#mg)"/>
-    <rect x="${x0}" y="${topY - 16}" width="${plotW}" height="${(snowY - topY + 16).toFixed(1)}" fill="#3A434F" clip-path="url(#mt)"/>
+    <rect x="${x0}" y="${ceil - 18}" width="${plotW}" height="${(snowY - ceil + 18).toFixed(1)}" fill="#3A434F" clip-path="url(#mt)"/>
     <path d="${ridgeLine}" fill="none" stroke="#59636F" stroke-width="1"/>
     ${peakMark}
     <line x1="${x0}" y1="${baseY}" x2="${x1}" y2="${baseY}" stroke="${t.muted}" stroke-opacity="0.28"/>
@@ -343,7 +349,7 @@ function contribMountains(u, t = MONO) {
   <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${H - 2 * m - 1}" rx="10" fill="none" stroke="${t.muted}" stroke-opacity="0.3"/>
   ${corners}
   <text class="cap" x="${px}" y="28">CONTRIBUTION LANDSCAPE</text>
-  <text class="sub" x="${px}" y="45">each peak = one week · height = contributions that week</text>
+  <text class="sub" x="${px}" y="45">each peak is one week · height = weekly contributions · the flag marks your busiest week</text>
   <text class="tot" x="${W - px}" y="28" text-anchor="end">${total} contributions</text>
   <text class="sub" x="${W - px}" y="45" text-anchor="end">last 12 months</text>
   ${monthLabels}
