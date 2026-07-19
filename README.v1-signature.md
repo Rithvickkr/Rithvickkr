@@ -110,4 +110,4 @@ class Rithvick:
   </picture>
 </p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:8B5CF6,50:6366F1,100:06B6D4&height=120&section=footer&text=Thanks%20for%20visiting!&fontSize=20&fontColor=FFFFFF&fontAlignY=75&animation=twinkling" alt="footer" />
+<img width="100%" src="./assets/footer.svg" alt="Thanks for scrolling — NEVER GIVE UP" />
