@@ -1,0 +1,8 @@
+<svg width="850" height="84" viewBox="0 0 850 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thanks for scrolling — NEVER GIVE UP">
+<defs><style>
+  .f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
+  .q{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:14px;fill:#8B949E;letter-spacing:.3px}.h{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:700;font-size:13px;fill:#F0F1F3;letter-spacing:2.6px}
+</style></defs>
+  <line class="f" x1="42" y1="30" x2="808" y2="30" stroke="#23262D"/>
+  <text class="q f" x="425" y="62" text-anchor="middle">Thanks for scrolling — let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
+</svg>

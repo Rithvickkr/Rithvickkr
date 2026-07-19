@@ -69,9 +69,20 @@ const tech = () => {
 </svg>`;
 };
 
+// ---------- MONO FOOTER ----------
+const footer = () => `<svg width="${W}" height="84" viewBox="0 0 ${W} 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thanks for scrolling — NEVER GIVE UP">
+<defs><style>
+  .f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
+  .q{${F(400, 14)};fill:${C.mut};letter-spacing:.3px}.h{${F(700, 13)};fill:${C.ink};letter-spacing:2.6px}
+</style></defs>
+  <line class="f" x1="${LM}" y1="30" x2="${W - LM}" y2="30" stroke="${C.line}"/>
+  <text class="q f" x="${cx}" y="62" text-anchor="middle">Thanks for scrolling — let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
+</svg>`;
+
 const files = {
   "sig-hero.svg": hero(),
   "sig-tech.svg": tech(),
+  "sig-footer.svg": footer(),
   "sig-sec-about.svg": secLabel("About Me"),
   "sig-sec-tech.svg": secLabel("Tech Stack"),
   "sig-sec-stats.svg": secLabel("GitHub Stats"),

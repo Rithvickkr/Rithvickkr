@@ -29,10 +29,13 @@ class Rithvick:
     flagship  = "ContextVolt — local-first AI context manager"
 ```
 
-- I build **production AI systems end to end** — retrieval pipelines, agents, and the backends that serve them.
-- Fixed **2 priority-P1 bugs** in **Google's Gemini CLI** (OOM buffer overflow + symlink handling).
-- Shipped AI to production at **Dobbe.ai** and a **Rocket.Chat AI FAQ bot**.
-- Deep in **RAG, MCP, and fine-tuning**. Open to collaboration on ambitious AI &amp; open-source work.
+I build **production AI systems end to end** — retrieval pipelines, agents, and the backends that serve them. Deep in **RAG, MCP, and fine-tuning**, and open to collaboration on ambitious AI &amp; open-source work.
+
+**Recent highlights**
+
+- **Google · Gemini CLI** — reported 6 issues and authored fixes for **2 priority-P1 bugs** (OOM buffer overflow + symlink handling)
+- **Dobbe.ai** — shipped an AI dental-X-ray detection UI + FastAPI backend to **production**
+- **Rocket.Chat** — built an AI FAQ bot that surfaces LLM-generated answers to moderators
 
 <br />
 
@@ -86,4 +89,4 @@ class Rithvick:
   <img alt="contribution snake" src="https://raw.githubusercontent.com/Rithvickkr/Rithvickkr/output/github-snake-noir.svg" />
 </p>
 
-<img width="100%" src="./assets/footer.svg" alt="Thanks for scrolling — NEVER GIVE UP" />
+<img width="100%" src="./assets/sig-footer.svg" alt="Thanks for scrolling — NEVER GIVE UP" />
