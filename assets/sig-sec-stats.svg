@@ -1,0 +1,8 @@
+<svg width="850" height="44" viewBox="0 0 850 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats">
+<defs><style>.k{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:12.5px;fill:#F0F1F3;letter-spacing:3px}.f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}</style></defs>
+  <line class="f" x1="42" y1="23" x2="347.25" y2="23" stroke="#23262D"/>
+  <circle class="f" cx="338.25" cy="23" r="1.5" fill="#3A3F46"/>
+  <text class="k f" x="425" y="28" text-anchor="middle">GITHUB STATS</text>
+  <circle class="f" cx="511.75" cy="23" r="1.5" fill="#3A3F46"/>
+  <line class="f" x1="502.75" y1="23" x2="808" y2="23" stroke="#23262D"/>
+</svg>

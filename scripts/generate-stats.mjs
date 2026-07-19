@@ -21,6 +21,13 @@ const NOIR = {
   sans: "'Helvetica Neue', Arial, 'Segoe UI', sans-serif",
   ramp: ["#F4F6F8", "#B9BEC3", "#868B90", "#5C6166", "#3A3E42", "#2A2E31"],
 };
+// mono/graphite (sans) — matches the v1 minimal header
+const MONO = {
+  card: "#0D1117", stops: ["#3A3F46", "#8B949E", "#C9D1D9"],
+  num: "#EAECEF", text: "#C9D1D9", muted: "#8B949E", track: "#21262D",
+  serif: SANS, sans: SANS,
+  ramp: ["#EAECEF", "#AEB4BE", "#828A96", "#5C636E", "#3A3F46", "#262B31"],
+};
 
 // ---- data ------------------------------------------------------------------
 const yearStart = new Date(Date.UTC(new Date().getUTCFullYear(), 0, 1)).toISOString();
@@ -195,7 +202,7 @@ function langCard(u, t = COLOR) {
 </svg>`;
 }
 
-export { statsCard, langCard, COLOR, NOIR };
+export { statsCard, langCard, COLOR, NOIR, MONO };
 
 // ---- main ------------------------------------------------------------------
 // Only runs when executed directly (not when imported for tests).
@@ -210,5 +217,7 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
   await writeFile("assets/top-langs.svg", langCard(user, COLOR), "utf8");
   await writeFile("assets/stats-noir.svg", statsCard(user, NOIR), "utf8");
   await writeFile("assets/top-langs-noir.svg", langCard(user, NOIR), "utf8");
-  console.log("Generated color + noir stat cards in assets/");
+  await writeFile("assets/stats-mono.svg", statsCard(user, MONO), "utf8");
+  await writeFile("assets/top-langs-mono.svg", langCard(user, MONO), "utf8");
+  console.log("Generated color + noir + mono stat cards in assets/");
 }

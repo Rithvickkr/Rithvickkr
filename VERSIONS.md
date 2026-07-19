@@ -4,7 +4,7 @@ Three self-hosted designs to A/B on the live profile. Pick one, switch, push.
 
 | Version | Vibe | Preview on GitHub |
 |---|---|---|
-| **v1 — Signature** | Vibrant: waving gradient header, colorful logo grid, emoji sections | [`README.v1-signature.md`](./README.v1-signature.md) |
+| **v1 — Signature** ⭐ | Minimal mono: centered hero, quiet section dividers, monochrome tech grid + stat cards | [`README.v1-signature.md`](./README.v1-signature.md) |
 | **v2 — Editorial** | Minimal: custom animated hero, numbered section headers, typographic tech grid | [`README.v2-editorial.md`](./README.v2-editorial.md) |
 | **v3 — Terminal** | Dev: terminal-window hero, `➜` prompt section headers, `git log` highlights | [`README.v3-terminal.md`](./README.v3-terminal.md) |
 | **v4 — Noir** | Monochrome: serif display, silver sheen, film grain, hairline sections (Roman numerals) | [`README.v4-noir.md`](./README.v4-noir.md) |
