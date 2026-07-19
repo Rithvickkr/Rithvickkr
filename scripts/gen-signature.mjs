@@ -132,14 +132,16 @@ const tech = () => {
 </svg>`;
 };
 
-// ---------- MONO FOOTER ----------
-const footer = () => `<svg width="${W}" height="84" viewBox="0 0 ${W} 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thanks for scrolling — NEVER GIVE UP">
+// ---------- FOOTER (summit quote) ----------
+const footer = () => `<svg width="${W}" height="104" viewBox="0 0 ${W} 104" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Every summit begins with a step that refused to turn back — NEVER GIVE UP">
 <defs><style>
-  .f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
-  .q{${F(400, 14)};fill:${C.mut};letter-spacing:.3px}.h{${F(700, 13)};fill:${C.ink};letter-spacing:2.6px}
+  .f{animation:fi .9s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
+  .q{font-family:Georgia,'Times New Roman',Times,serif;font-style:italic;font-weight:400;font-size:16.5px;fill:${C.txt}}
+  .h{${F(700, 12)};fill:${C.ink};letter-spacing:3.4px}
 </style></defs>
   <line class="f" x1="${LM}" y1="30" x2="${W - LM}" y2="30" stroke="${C.line}"/>
-  <text class="q f" x="${cx}" y="62" text-anchor="middle">Thanks for scrolling. Let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
+  <text class="q f" x="${cx}" y="64" text-anchor="middle">&#8220;Every summit begins with a step that refused to turn back&#8221;</text>
+  <text class="h f" x="${cx}" y="90" text-anchor="middle">NEVER GIVE UP</text>
 </svg>`;
 
 const files = {

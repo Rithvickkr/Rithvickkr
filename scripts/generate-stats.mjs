@@ -79,6 +79,10 @@ const fmt = (n) =>
   n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k" : String(n);
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// last-12-months contributions (matches the landscape graph + GitHub's own "last year")
+const yearContribs = (u) =>
+  (u.cal && u.cal.contributionCalendar && u.cal.contributionCalendar.totalContributions) ??
+  u.contributionsCollection.contributionCalendar.totalContributions;
 
 const FALLBACK_COLORS = ["#06B6D4", "#8B5CF6", "#6366F1", "#22D3EE", "#A78BFA", "#818CF8"];
 
@@ -94,7 +98,7 @@ function statsCard(u, t = COLOR) {
     { label: "Followers", value: u.followers.totalCount },
     { label: `Commits (${new Date().getUTCFullYear()})`, value: commits },
     { label: "Pull Requests", value: u.pullRequests.totalCount },
-    { label: "Contributions", value: u.contributionsCollection.contributionCalendar.totalContributions },
+    { label: "Contributions", value: yearContribs(u) },
   ];
 
   const colX = [95, 245, 395];
@@ -212,7 +216,7 @@ function statsPanel(u, t = MONO) {
   const cells = [
     ["Total Stars", totalStars], ["Repositories", u.repositories.totalCount], ["Followers", u.followers.totalCount],
     [`Commits (${new Date().getUTCFullYear()})`, commits], ["Pull Requests", u.pullRequests.totalCount],
-    ["Contributions", u.contributionsCollection.contributionCalendar.totalContributions],
+    ["Contributions", yearContribs(u)],
   ];
   const totals = new Map(), colors = new Map();
   for (const repo of u.repositories.nodes) for (const e of repo.languages.edges) {

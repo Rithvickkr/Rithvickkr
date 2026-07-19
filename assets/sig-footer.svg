@@ -1,8 +1,10 @@
-<svg width="850" height="84" viewBox="0 0 850 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thanks for scrolling — NEVER GIVE UP">
+<svg width="850" height="104" viewBox="0 0 850 104" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Every summit begins with a step that refused to turn back — NEVER GIVE UP">
 <defs><style>
-  .f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
-  .q{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:400;font-size:14px;fill:#8B949E;letter-spacing:.3px}.h{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:700;font-size:13px;fill:#F0F1F3;letter-spacing:2.6px}
+  .f{animation:fi .9s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}
+  .q{font-family:Georgia,'Times New Roman',Times,serif;font-style:italic;font-weight:400;font-size:16.5px;fill:#C9D1D9}
+  .h{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:700;font-size:12px;fill:#F0F1F3;letter-spacing:3.4px}
 </style></defs>
   <line class="f" x1="42" y1="30" x2="808" y2="30" stroke="#23262D"/>
-  <text class="q f" x="425" y="62" text-anchor="middle">Thanks for scrolling. Let's build something.   <tspan class="h">NEVER GIVE UP</tspan></text>
+  <text class="q f" x="425" y="64" text-anchor="middle">&#8220;Every summit begins with a step that refused to turn back&#8221;</text>
+  <text class="h f" x="425" y="90" text-anchor="middle">NEVER GIVE UP</text>
 </svg>
