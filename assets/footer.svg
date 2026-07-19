@@ -1,0 +1,10 @@
+<svg width="850" height="92" viewBox="0 0 850 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="footer">
+<defs>
+  <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#22D3EE"/><stop offset="0.5" stop-color="#6366F1"/><stop offset="1" stop-color="#A78BFA"/>
+  </linearGradient>
+  <style>.q{font-family:'Segoe UI', 'Helvetica Neue', Arial, Sans-Serif;font-weight:500;font-size:15px;fill:#8B949E;letter-spacing:1px}.h{font-family:'Segoe UI', 'Helvetica Neue', Arial, Sans-Serif;font-weight:800;font-size:15px;fill:url(#acc);letter-spacing:2px}</style>
+</defs>
+  <rect x="0" y="28" width="850" height="2" rx="1" fill="url(#acc)" opacity="0.5"/>
+  <text class="q" x="425" y="64" text-anchor="middle">Thanks for scrolling — let's build something.  <tspan class="h">NEVER GIVE UP</tspan></text>
+</svg>

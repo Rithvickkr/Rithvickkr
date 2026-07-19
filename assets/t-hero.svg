@@ -1,0 +1,28 @@
+<svg width="850" height="268" viewBox="0 0 850 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rithvick Kumar terminal">
+<defs>
+  <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#39D3EE"/><stop offset="0.5" stop-color="#6366F1"/><stop offset="1" stop-color="#A78BFA"/>
+  </linearGradient>
+  <style>
+    .ln{font-family:'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;font-weight:500;font-size:15px;fill:#E6EDF3;animation:fi .5s ease both}
+    @keyframes fi{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:translateX(0)}}
+    .grn{fill:#3FB950;font-weight:700}.cmd{fill:#39D3EE;font-weight:700}.arg{fill:#A78BFA}
+    .flag{fill:#E3B341}.out{fill:#8B949E}.ylw{fill:#E3B341;font-weight:600}.acc{fill:#39D3EE;font-weight:600}
+    .title{font-family:'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;font-weight:500;font-size:13px;fill:#8B949E}
+    @keyframes blink{50%{opacity:0}}
+    .cur{animation:blink 1.1s steps(1) infinite}
+  </style>
+</defs>
+  <rect x="1" y="1" width="848" height="266" rx="12" fill="#0D1117" stroke="#30363D" stroke-width="1.5"/>
+  <path d="M1 13 A12 12 0 0 1 13 1 L837 1 A12 12 0 0 1 849 13 L849 40 L1 40 Z" fill="#161B22"/>
+  <circle cx="24" cy="20" r="6" fill="#FF5F56"/><circle cx="46" cy="20" r="6" fill="#FFBD2E"/><circle cx="68" cy="20" r="6" fill="#27C93F"/>
+  <text x="425" y="25" text-anchor="middle" class="title">rithvick@github ── ~/portfolio ── zsh</text>
+  <line x1="1" y1="40" x2="849" y2="40" stroke="#30363D" stroke-width="1"/>
+  <text x="26" y="80" class="ln" style="animation-delay:0.2s"><tspan class="grn">$</tspan> <tspan class="cmd">whoami</tspan></text>
+  <text x="26" y="110" class="ln" style="animation-delay:0.45s"><tspan class="out">Rithvick Kumar — </tspan><tspan class="acc">AI/ML · Full-Stack · Backend Engineer</tspan></text>
+  <text x="26" y="140" class="ln" style="animation-delay:0.7s"><tspan class="grn">$</tspan> <tspan class="cmd">cat</tspan> <tspan class="arg">summary.txt</tspan></text>
+  <text x="26" y="170" class="ln" style="animation-delay:0.95s"><tspan class="out">I ship production AI systems — LLM &amp; RAG pipelines, agents, and the APIs.</tspan></text>
+  <text x="26" y="200" class="ln" style="animation-delay:1.2s"><tspan class="grn">$</tspan> <tspan class="cmd">./highlights</tspan> <tspan class="flag">--top</tspan></text>
+  <text x="26" y="230" class="ln" style="animation-delay:1.45s"><tspan class="out">Gemini CLI · </tspan><tspan class="ylw">2 P1 bugs fixed</tspan><tspan class="out">   Dobbe.ai · </tspan><tspan class="ylw">shipped to prod</tspan></text>
+  <rect class="cur" x="26" y="244" width="10" height="18" fill="#39D3EE"/>
+</svg>

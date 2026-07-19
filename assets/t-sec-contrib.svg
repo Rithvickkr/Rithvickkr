@@ -1,0 +1,15 @@
+<svg width="850" height="46" viewBox="0 0 850 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="~/graph ./snake.sh">
+<defs>
+  <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#39D3EE"/><stop offset="0.5" stop-color="#6366F1"/><stop offset="1" stop-color="#A78BFA"/>
+  </linearGradient>
+  <style>
+    .l{font-family:'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;font-weight:600;font-size:15px;animation:fi .6s ease both}
+    @keyframes fi{from{opacity:0}to{opacity:1}}
+    .p{fill:#3FB950;font-weight:700}.pa{fill:#39D3EE}.br{fill:#8B949E}.cm{fill:#E6EDF3;font-weight:600}.hash{fill:#A78BFA;font-weight:700}
+  </style>
+</defs>
+  <text class="l" x="6" y="30"><tspan class="p">➜</tspan>  <tspan class="pa">~/graph</tspan> <tspan class="br">git:(</tspan><tspan class="hash">main</tspan><tspan class="br">)</tspan> <tspan class="cm">./snake.sh</tspan></text>
+  <rect x="310.79999999999995" y="21" width="509.20000000000005" height="2" rx="1" fill="url(#acc)" opacity="0.5"><animate attributeName="width" from="0" to="509.20000000000005" dur="1s" begin=".3s" fill="freeze" calcMode="spline" keySplines="0.3 0 0.2 1" keyTimes="0;1" values="0;509.20000000000005"/></rect>
+  <text class="l br" x="826" y="30" text-anchor="end" font-weight="700" fill="#A78BFA">06</text>
+</svg>
