@@ -55,27 +55,29 @@ function hero() {
 
 // ---------- SECTION HEADER ----------
 function section(num, title) {
-  const H = 58;
+  const H = 72;
   const t = title.toUpperCase();
-  const numW = est(num, 22, 0);
-  const divX = LM + numW + 16;
-  const tx = divX + 16;
-  const titleW = est(t, 19, 3);
-  const ruleX = tx + titleW + 22;
+  const numW = est(num, 30, 0);
+  const divX = LM + numW + 18;
+  const tx = divX + 18;
+  const titleW = est(t, 25, 2.5);
+  const ruleX = tx + titleW + 26;
   const ruleW = W - LM - ruleX;
+  const baseY = 54;
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
 <defs>${accentDefs}
   <style>
     .f{animation:fi .8s ease both}
     @keyframes fi{from{opacity:0}to{opacity:1}}
-    .num{${F(800, 22)};fill:url(#acc)}
-    .ttl{${F(800, 19)};fill:${C.text};letter-spacing:3px}
+    .num{${F(800, 30)};fill:url(#acc)}
+    .ttl{${F(800, 25)};fill:#F0F6FC;letter-spacing:2.5px}
   </style>
 </defs>
-  <text class="num f" x="${LM}" y="38">${num}</text>
-  <line class="f" x1="${divX}" y1="18" x2="${divX}" y2="42" stroke="${C.faint}" stroke-width="1.5"/>
-  <text class="ttl f" x="${tx}" y="37">${t}</text>
-  <rect x="${ruleX}" y="29" width="${ruleW}" height="2" rx="1" fill="url(#acc)" opacity="0.55"><animate attributeName="width" from="0" to="${ruleW}" dur="1s" begin=".3s" fill="freeze" calcMode="spline" keySplines="0.3 0 0.2 1" keyTimes="0;1" values="0;${ruleW}"/></rect>
+  <text class="num f" x="${LM}" y="44">${num}</text>
+  <line class="f" x1="${divX}" y1="20" x2="${divX}" y2="48" stroke="${C.faint}" stroke-width="1.5"/>
+  <text class="ttl f" x="${tx}" y="43">${t}</text>
+  <rect x="${ruleX}" y="33" width="${ruleW}" height="2" rx="1" fill="url(#acc)" opacity="0.6"><animate attributeName="width" from="0" to="${ruleW}" dur="1s" begin=".3s" fill="freeze" calcMode="spline" keySplines="0.3 0 0.2 1" keyTimes="0;1" values="0;${ruleW}"/></rect>
+  <line x1="${LM}" y1="${baseY + 10}" x2="${W - LM}" y2="${baseY + 10}" stroke="${C.faint}" stroke-width="1" opacity="0.7"/>
 </svg>`;
 }
 

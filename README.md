@@ -57,7 +57,57 @@ Currently deep in **RAG, MCP, and fine-tuning**. Open to collaboration on ambiti
 <!-- ==================== 03 · TECH STACK ==================== -->
 <img width="100%" src="./assets/sec-stack.svg" alt="Tech Stack" />
 
-<img width="100%" src="./assets/tech.svg" alt="Tech stack: AI/ML, Languages, Backend, Frontend, Data, Tooling" />
+<table align="center">
+  <tr>
+    <td align="center"><strong>AI / ML</strong></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn" alt="ai" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="langchain" />
+      <img src="https://img.shields.io/badge/RAG-8B5CF6?style=flat-square" alt="rag" />
+      <img src="https://img.shields.io/badge/MCP-06B6D4?style=flat-square" alt="mcp" />
+      <img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="hf" />
+      <img src="https://img.shields.io/badge/Vertex%20AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="vertex" />
+      <img src="https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white" alt="ollama" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Languages</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=python,ts,js,java,c" alt="languages" /></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Backend</strong></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=fastapi,nodejs,express,nginx" alt="backend" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/WebSockets-010101?style=flat-square&logo=socketdotio&logoColor=white" alt="ws" />
+      <img src="https://img.shields.io/badge/WebRTC-333333?style=flat-square&logo=webrtc&logoColor=white" alt="webrtc" />
+      <img src="https://img.shields.io/badge/OAuth%202.0-EB5424?style=flat-square&logo=auth0&logoColor=white" alt="oauth" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Frontend</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,threejs" alt="frontend" /></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Data</strong></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=postgresql,sqlite,mongodb,supabase,prisma" alt="data" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/FAISS-0467DF?style=flat-square&logo=meta&logoColor=white" alt="faiss" />
+      <img src="https://img.shields.io/badge/ChromaDB-FFCA28?style=flat-square" alt="chroma" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Tooling</strong></td>
+    <td>
+      <img src="https://skillicons.dev/icons?i=git,docker,githubactions,vercel,cloudflare" alt="tooling" />
+      &nbsp;
+      <img src="https://img.shields.io/badge/W%26B-FFBE00?style=flat-square&logo=weightsandbiases&logoColor=black" alt="wandb" />
+      <img src="https://img.shields.io/badge/MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white" alt="mlflow" />
+    </td>
+  </tr>
+</table>
 
 <br />
 
