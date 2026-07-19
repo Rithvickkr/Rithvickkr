@@ -8,19 +8,13 @@
   <img width="100%" src="./assets/sig-hero.svg" alt="Rithvick Kumar — AI/ML · Full-Stack · Backend Engineer" />
 </a>
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=19&duration=2800&pause=900&color=9AA0A8&center=true&vCenter=true&width=700&lines=Building+LLM%2C+RAG+%26+agent+pipelines;Gemini+CLI+contributor+(2+P1+bugs+fixed);ContextVolt+%E2%80%94+local-first+AI+context+manager;NIT+Kurukshetra+'26+%C2%B7+I+ship+to+production." alt="typing" />
-</p>
-
 <!-- ==================== SOCIALS ==================== -->
 <p align="center">
-  <a href="https://linkedin.com/in/rithvick-kumar" target="_blank"><img height="34" src="./assets/social-linkedin.svg" alt="LinkedIn" /></a>&nbsp;
-  <a href="https://x.com/rithvickkr027" target="_blank"><img height="34" src="./assets/social-x.svg" alt="X" /></a>&nbsp;
-  <a href="mailto:rithvickkumar27@gmail.com"><img height="34" src="./assets/social-gmail.svg" alt="Gmail" /></a>&nbsp;
-  <a href="https://github.com/Rithvickkr" target="_blank"><img height="34" src="./assets/social-github.svg" alt="GitHub" /></a>&nbsp;
-  <a href="https://rithvick.online" target="_blank"><img height="34" src="./assets/social-portfolio.svg" alt="Portfolio" /></a>
-  &nbsp;
-  <img height="34" src="https://komarev.com/ghpvc/?username=Rithvickkr&style=for-the-badge&label=VIEWS&labelColor=0D1117&color=8B5CF6" alt="Profile Views" />
+  <a href="https://linkedin.com/in/rithvick-kumar" target="_blank"><img height="33" src="./assets/az-social-linkedin.svg" alt="LinkedIn" /></a>&nbsp;
+  <a href="https://github.com/Rithvickkr" target="_blank"><img height="33" src="./assets/az-social-github.svg" alt="GitHub" /></a>&nbsp;
+  <a href="https://x.com/rithvickkr027" target="_blank"><img height="33" src="./assets/az-social-x.svg" alt="X" /></a>&nbsp;
+  <a href="mailto:rithvickkumar27@gmail.com"><img height="33" src="./assets/az-social-email.svg" alt="Email" /></a>&nbsp;
+  <a href="https://rithvick.online" target="_blank"><img height="33" src="./assets/az-social-portfolio.svg" alt="Portfolio" /></a>
 </p>
 
 <br />
