@@ -1,8 +1,13 @@
-<svg width="850" height="44" viewBox="0 0 850 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="About Me">
-<defs><style>.k{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:12.5px;fill:#F0F1F3;letter-spacing:3px}.f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}</style></defs>
-  <line class="f" x1="42" y1="23" x2="367" y2="23" stroke="#23262D"/>
-  <path class="f" d="M 358 20 L 361 23 L 358 26 L 355 23 Z" fill="#6C90C0"/>
-  <text class="k f" x="425" y="28" text-anchor="middle">ABOUT ME</text>
-  <path class="f" d="M 492 20 L 495 23 L 492 26 L 489 23 Z" fill="#6C90C0"/>
-  <line class="f" x1="483" y1="23" x2="808" y2="23" stroke="#23262D"/>
+<svg width="850" height="60" viewBox="0 0 850 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="About Me">
+<defs>
+  <clipPath id="scene"><rect x="6" y="6" width="838" height="48" rx="7"/></clipPath>
+  <style>.sn{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}@keyframes fall{0%{transform:translateY(-12px);opacity:0}14%{opacity:.6}86%{opacity:.6}100%{transform:translateY(58px);opacity:0}}.k{font-family:'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;font-weight:600;font-size:13px;fill:#F0F1F3;letter-spacing:3px}.f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}</style>
+</defs>
+  <rect width="850" height="60" fill="#0D1117"/>
+  <g clip-path="url(#scene)"><rect x="6" y="6" width="838" height="48" fill="#0B0F15"/><circle class="sn" cx="296.8" cy="43.9" r="1.11" fill="#DCE3EC" opacity="0.27" style="animation-duration:12.0s;animation-delay:-0.2s"/><circle class="sn" cx="316.1" cy="29.4" r="1.01" fill="#DCE3EC" opacity="0.41" style="animation-duration:10.9s;animation-delay:-0.0s"/><circle class="sn" cx="528.8" cy="28.4" r="1.48" fill="#DCE3EC" opacity="0.36" style="animation-duration:8.8s;animation-delay:-1.2s"/><circle class="sn" cx="65.5" cy="34.0" r="0.87" fill="#DCE3EC" opacity="0.30" style="animation-duration:10.6s;animation-delay:-2.3s"/><circle class="sn" cx="334.5" cy="12.3" r="1.17" fill="#DCE3EC" opacity="0.41" style="animation-duration:12.1s;animation-delay:-1.3s"/><circle class="sn" cx="502.0" cy="41.2" r="1.39" fill="#DCE3EC" opacity="0.37" style="animation-duration:6.4s;animation-delay:-2.1s"/><circle class="sn" cx="406.7" cy="45.7" r="0.74" fill="#DCE3EC" opacity="0.43" style="animation-duration:9.4s;animation-delay:-12.6s"/><circle class="sn" cx="123.8" cy="42.9" r="0.94" fill="#DCE3EC" opacity="0.37" style="animation-duration:6.3s;animation-delay:-5.2s"/><circle class="sn" cx="602.4" cy="30.8" r="1.10" fill="#DCE3EC" opacity="0.26" style="animation-duration:12.8s;animation-delay:-12.0s"/><circle class="sn" cx="661.9" cy="39.6" r="1.61" fill="#DCE3EC" opacity="0.29" style="animation-duration:13.0s;animation-delay:-7.8s"/><circle class="sn" cx="21.4" cy="19.6" r="1.19" fill="#DCE3EC" opacity="0.24" style="animation-duration:8.6s;animation-delay:-6.6s"/><circle class="sn" cx="112.3" cy="38.8" r="1.49" fill="#DCE3EC" opacity="0.42" style="animation-duration:11.2s;animation-delay:-5.0s"/><circle class="sn" cx="183.0" cy="26.4" r="1.61" fill="#DCE3EC" opacity="0.50" style="animation-duration:11.6s;animation-delay:-10.1s"/><circle class="sn" cx="68.6" cy="12.4" r="0.85" fill="#DCE3EC" opacity="0.50" style="animation-duration:10.8s;animation-delay:-6.3s"/></g>
+  <rect x="6.5" y="6.5" width="837" height="47" rx="7" fill="none" stroke="#23262D"/>
+  <path d="M 17 6 L 6 6 L 6 17" stroke="#6C90C0" stroke-width="1.5" fill="none" opacity="0.7"/><path d="M 833 6 L 844 6 L 844 17" stroke="#6C90C0" stroke-width="1.5" fill="none" opacity="0.7"/><path d="M 17 54 L 6 54 L 6 43" stroke="#6C90C0" stroke-width="1.5" fill="none" opacity="0.7"/><path d="M 833 54 L 844 54 L 844 43" stroke="#6C90C0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path class="f" d="M 363.9 26 L 366.9 30 L 363.9 34 L 360.9 30 Z" fill="#6C90C0"/>
+  <text class="k f" x="425" y="34.5" text-anchor="middle">ABOUT ME</text>
+  <path class="f" d="M 486.1 26 L 489.1 30 L 486.1 34 L 483.1 30 Z" fill="#6C90C0"/>
 </svg>

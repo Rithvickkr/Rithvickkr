@@ -221,7 +221,21 @@ function statsPanel(u, t = MONO) {
     name, pct: (size / sum) * 100, color: t.ramp ? t.ramp[i % t.ramp.length] : (colors.get(name) || FALLBACK_COLORS[i % FALLBACK_COLORS.length]),
   }));
 
-  const W = 850, H = 230, px = 36, inner = W - 2 * px, colW = inner / 6;
+  const W = 850, H = 264, px = 36, inner = W - 2 * px, colW = inner / 6;
+  const m = 6, right = W - m, bottom = H - m, ACC = "#6C90C0", rnd = (a, b) => a + Math.random() * (b - a);
+  const flakes = Array.from({ length: 18 }, () => {
+    const x = rnd(m + 8, right - 8).toFixed(1), y = rnd(m + 6, 128).toFixed(1), r = rnd(0.7, 1.6).toFixed(2);
+    const dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.22, 0.42).toFixed(2);
+    return `<circle class="sn" cx="${x}" cy="${y}" r="${r}" fill="#DCE3EC" opacity="${op}" style="animation-duration:${dur}s;animation-delay:${del}s"/>`;
+  }).join("");
+  const pk = 600;
+  const ridge = `<path d="M ${m} ${bottom} L ${m} ${bottom - 14} L ${(m + pk) / 2} ${bottom - 8} L ${pk - 40} ${bottom - 12} L ${pk} ${bottom - 34} L ${pk + 44} ${bottom - 12} L ${(pk + right) / 2} ${bottom - 9} L ${right} ${bottom - 15} L ${right} ${bottom} Z" fill="#0A0E13"/><path d="M ${pk - 14} ${bottom - 20} L ${pk} ${bottom - 34} L ${pk + 14} ${bottom - 20} L ${pk + 6} ${bottom - 22} L ${pk} ${bottom - 28} L ${pk - 6} ${bottom - 22} Z" fill="#39424E"/>`;
+  const L = 13, cs = `stroke="${ACC}" stroke-width="1.5" fill="none" opacity="0.7"`;
+  const cornersP =
+    `<path d="M ${m + L} ${m} L ${m} ${m} L ${m} ${m + L}" ${cs}/>` +
+    `<path d="M ${right - L} ${m} L ${right} ${m} L ${right} ${m + L}" ${cs}/>` +
+    `<path d="M ${m + L} ${bottom} L ${m} ${bottom} L ${m} ${bottom - L}" ${cs}/>` +
+    `<path d="M ${right - L} ${bottom} L ${right} ${bottom} L ${right} ${bottom - L}" ${cs}/>`;
   const statItems = cells.map(([l, v], i) => {
     const x = px + colW * i + colW / 2;
     return `<g class="fade" style="animation-delay:${(0.1 + i * 0.06).toFixed(2)}s"><text class="num" x="${x.toFixed(1)}" y="64" text-anchor="middle">${fmt(v)}</text><text class="lbl" x="${x.toFixed(1)}" y="86" text-anchor="middle">${esc(l)}</text></g>`;
@@ -236,7 +250,11 @@ function statsPanel(u, t = MONO) {
   }).join("");
 
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub statistics for ${esc(u.login)}">
-  <defs><style>
+  <defs>
+    <clipPath id="scene"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" rx="10"/></clipPath>
+    <clipPath id="rnd"><rect x="${barX}" y="${barY}" width="${barW}" height="${barH}" rx="5"/></clipPath>
+    <style>
+    .sn{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}@keyframes fall{0%{transform:translateY(-12px);opacity:0}14%{opacity:.6}86%{opacity:.6}100%{transform:translateY(58px);opacity:0}}
     .fade{animation:rise .6s ease both}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
     .num{font:700 30px ${t.serif};fill:${t.num}}
     .lbl{font:400 11.5px ${t.sans};fill:${t.muted};letter-spacing:.4px}
@@ -244,11 +262,13 @@ function statsPanel(u, t = MONO) {
     .lname{font:600 13px ${t.sans};fill:${t.text}}
     .lpct{font:400 13px ${t.sans};fill:${t.muted}}
   </style></defs>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="${t.card}" stroke="${t.muted}" stroke-opacity="0.26"/>
+  <rect width="${W}" height="${H}" fill="#0D1117"/>
+  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" fill="#0B0F15"/>${flakes}${ridge}</g>
+  <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${H - 2 * m - 1}" rx="10" fill="none" stroke="${t.muted}" stroke-opacity="0.3"/>
+  ${cornersP}
   ${statItems}
   <line x1="${px}" y1="112" x2="${W - px}" y2="112" stroke="${t.muted}" stroke-opacity="0.16"/>
   <text class="llabel" x="${px}" y="136">MOST USED LANGUAGES</text>
-  <clipPath id="rnd"><rect x="${barX}" y="${barY}" width="${barW}" height="${barH}" rx="5"/></clipPath>
   <g clip-path="url(#rnd)">${segs}</g>
   ${legend}
 </svg>`;

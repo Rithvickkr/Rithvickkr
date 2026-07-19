@@ -8,6 +8,23 @@ const C = { bg: "#0D1117", ink: "#F0F1F3", txt: "#C9D1D9", mut: "#8B949E", dim: 
 const est = (s, size, ls = 0) => s.length * size * 0.55 + (s.length - 1) * ls;
 const cx = W / 2;
 const rnd = (a, b) => a + Math.random() * (b - a);
+
+// ---- shared cozy-scene helpers ----
+const SNOW_CSS = `.sn{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}@keyframes fall{0%{transform:translateY(-12px);opacity:0}14%{opacity:.6}86%{opacity:.6}100%{transform:translateY(58px);opacity:0}}`;
+const snow = (n, x0, x1, y0, y1, maxOp = 0.55) => Array.from({ length: n }, () => {
+  const x = rnd(x0, x1).toFixed(1), y = rnd(y0, y1).toFixed(1), r = rnd(0.7, 1.7).toFixed(2);
+  const dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.22, maxOp).toFixed(2);
+  return `<circle class="sn" cx="${x}" cy="${y}" r="${r}" fill="#DCE3EC" opacity="${op}" style="animation-duration:${dur}s;animation-delay:${del}s"/>`;
+}).join("");
+const corners = (m, right, bottom, len = 13) =>
+  `<path d="M ${m + len} ${m} L ${m} ${m} L ${m} ${m + len}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>` +
+  `<path d="M ${right - len} ${m} L ${right} ${m} L ${right} ${m + len}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>` +
+  `<path d="M ${m + len} ${bottom} L ${m} ${bottom} L ${m} ${bottom - len}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>` +
+  `<path d="M ${right - len} ${bottom} L ${right} ${bottom} L ${right} ${bottom - len}" stroke="${C.acc}" stroke-width="1.5" fill="none" opacity="0.7"/>`;
+// a low, subtle mountain silhouette that sits along the bottom edge (peakX = dominant Everest peak)
+const ridge = (m, right, base, peakX) =>
+  `<path d="M ${m} ${base} L ${m} ${base - 14} L ${(m + peakX) / 2} ${base - 8} L ${peakX - 40} ${base - 12} L ${peakX} ${base - 34} L ${peakX + 44} ${base - 12} L ${(peakX + right) / 2} ${base - 9} L ${right} ${base - 15} L ${right} ${base} Z" fill="#0A0E13"/>` +
+  `<path d="M ${peakX - 14} ${base - 20} L ${peakX} ${base - 34} L ${peakX + 14} ${base - 20} L ${peakX + 6} ${base - 22} L ${peakX} ${base - 28} L ${peakX - 6} ${base - 22} Z" fill="#39424E"/>`;
 const hero = () => {
   const HH = 300, m = 14, right = W - m, bottom = HH - m;
   // snowfall
@@ -60,17 +77,23 @@ const hero = () => {
 </svg>`;
 };
 
-// ---------- CENTERED SECTION DIVIDER ----------
+// ---------- FRAMED COZY SECTION BANNER ----------
 const secLabel = (title) => {
-  const h = 44, t = title.toUpperCase(), tw = est(t, 12.5, 3), half = tw / 2, gap = 20;
-  const lx2 = cx - half - gap, rx1 = cx + half + gap;
+  const h = 60, m = 6, right = W - m, bottom = h - m;
+  const t = title.toUpperCase(), tw = est(t, 13, 3), half = tw / 2, gap = 22;
+  const flakes = snow(14, m + 8, right - 8, m + 6, bottom - 8, 0.5);
   return `<svg width="${W}" height="${h}" viewBox="0 0 ${W} ${h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
-<defs><style>.k{${F(600, 12.5)};fill:${C.ink};letter-spacing:3px}.f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}</style></defs>
-  <line class="f" x1="${LM}" y1="23" x2="${lx2}" y2="23" stroke="${C.line}"/>
-  <path class="f" d="M ${lx2 - 9} 20 L ${lx2 - 6} 23 L ${lx2 - 9} 26 L ${lx2 - 12} 23 Z" fill="${C.acc}"/>
-  <text class="k f" x="${cx}" y="28" text-anchor="middle">${t}</text>
-  <path class="f" d="M ${rx1 + 9} 20 L ${rx1 + 12} 23 L ${rx1 + 9} 26 L ${rx1 + 6} 23 Z" fill="${C.acc}"/>
-  <line class="f" x1="${rx1}" y1="23" x2="${W - LM}" y2="23" stroke="${C.line}"/>
+<defs>
+  <clipPath id="scene"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${h - 2 * m}" rx="7"/></clipPath>
+  <style>${SNOW_CSS}.k{${F(600, 13)};fill:${C.ink};letter-spacing:3px}.f{animation:fi .8s ease both}@keyframes fi{from{opacity:0}to{opacity:1}}</style>
+</defs>
+  <rect width="${W}" height="${h}" fill="#0D1117"/>
+  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${h - 2 * m}" fill="#0B0F15"/>${flakes}</g>
+  <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${h - 2 * m - 1}" rx="7" fill="none" stroke="${C.line}"/>
+  ${corners(m, right, bottom, 11)}
+  <path class="f" d="M ${cx - half - gap} ${h / 2 - 4} L ${cx - half - gap + 3} ${h / 2} L ${cx - half - gap} ${h / 2 + 4} L ${cx - half - gap - 3} ${h / 2} Z" fill="${C.acc}"/>
+  <text class="k f" x="${cx}" y="${h / 2 + 4.5}" text-anchor="middle">${t}</text>
+  <path class="f" d="M ${cx + half + gap} ${h / 2 - 4} L ${cx + half + gap + 3} ${h / 2} L ${cx + half + gap} ${h / 2 + 4} L ${cx + half + gap - 3} ${h / 2} Z" fill="${C.acc}"/>
 </svg>`;
 };
 
@@ -84,17 +107,27 @@ const tech = () => {
     ["Data", "PostgreSQL · SQLite · sqlite-vec · MongoDB · Supabase · Prisma · FAISS"],
     ["Tooling", "Git · Docker · GitHub Actions · Vercel · Weights & Biases · MLflow"],
   ];
-  const rh = 34, top = 12, h = top + rows.length * rh + 4;
+  const rh = 34, top = 26, m = 6, right = W - m;
+  const h = top + rows.length * rh + 40;       // extra room for the ridge
+  const bottom = h - m;
   const items = rows.map(([c, v], i) => {
     const y = top + i * rh + 20, delay = 0.1 + i * 0.07;
     const val = v.replace(/&/g, "&amp;").replace(/ · /g, '  <tspan class="dot">·</tspan>  ');
     return `<g class="row" style="animation-delay:${delay}s"><text class="cat" x="${LM}" y="${y}">${c.toUpperCase()}</text><text class="val" x="${LM + 150}" y="${y}">${val}</text></g>`;
   }).join("\n  ");
+  const flakes = snow(20, m + 8, right - 8, m + 6, top + 10, 0.4);
   return `<svg width="${W}" height="${h}" viewBox="0 0 ${W} ${h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tech stack">
-<defs><style>
+<defs>
+  <clipPath id="scene"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${h - 2 * m}" rx="8"/></clipPath>
+  <style>${SNOW_CSS}
   .row{animation:ri .6s ease both}@keyframes ri{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:none}}
   .cat{${F(600, 11.5)};fill:${C.mut};letter-spacing:1.8px}.val{${F(400, 14.5)};fill:${C.txt}}.dot{fill:${C.dim}}
-</style></defs>
+  </style>
+</defs>
+  <rect width="${W}" height="${h}" fill="#0D1117"/>
+  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${h - 2 * m}" fill="#0B0F15"/>${flakes}${ridge(m, right, bottom, 620)}</g>
+  <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${h - 2 * m - 1}" rx="8" fill="none" stroke="${C.line}"/>
+  ${corners(m, right, bottom, 13)}
   ${items}
 </svg>`;
 };
