@@ -75,10 +75,8 @@ I'm an **AI/ML · Full-Stack · Backend** engineer who builds **production AI sy
 
 <br />
 
-<img width="100%" src="./assets/sig-sec-contrib.svg" alt="Contribution Graph" />
+<img width="100%" src="./assets/sig-sec-contrib.svg" alt="Contribution Landscape" />
 
-<p align="center">
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/Rithvickkr/Rithvickkr/output/github-snake-noir.svg" />
-</p>
+<img width="100%" src="./assets/contrib-mountains.svg" alt="Contribution landscape — a mountain range of the last year's contributions" />
 
 <img width="100%" src="./assets/sig-footer.svg" alt="Thanks for scrolling — NEVER GIVE UP" />

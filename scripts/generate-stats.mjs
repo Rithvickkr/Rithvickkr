@@ -53,6 +53,9 @@ query($login:String!, $from:DateTime!){
       restrictedContributionsCount
       contributionCalendar { totalContributions }
     }
+    cal: contributionsCollection {
+      contributionCalendar { totalContributions weeks { contributionDays { contributionCount } } }
+    }
   }
 }`;
 
@@ -221,15 +224,13 @@ function statsPanel(u, t = MONO) {
     name, pct: (size / sum) * 100, color: t.ramp ? t.ramp[i % t.ramp.length] : (colors.get(name) || FALLBACK_COLORS[i % FALLBACK_COLORS.length]),
   }));
 
-  const W = 850, H = 264, px = 36, inner = W - 2 * px, colW = inner / 6;
+  const W = 850, H = 236, px = 36, inner = W - 2 * px, colW = inner / 6;
   const m = 6, right = W - m, bottom = H - m, ACC = "#6C90C0", rnd = (a, b) => a + Math.random() * (b - a);
   const flakes = Array.from({ length: 18 }, () => {
     const x = rnd(m + 8, right - 8).toFixed(1), y = rnd(m + 6, 128).toFixed(1), r = rnd(0.7, 1.6).toFixed(2);
     const dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.22, 0.42).toFixed(2);
     return `<circle class="sn" cx="${x}" cy="${y}" r="${r}" fill="#DCE3EC" opacity="${op}" style="animation-duration:${dur}s;animation-delay:${del}s"/>`;
   }).join("");
-  const pk = 600;
-  const ridge = `<path d="M ${m} ${bottom} L ${m} ${bottom - 14} L ${(m + pk) / 2} ${bottom - 8} L ${pk - 40} ${bottom - 12} L ${pk} ${bottom - 34} L ${pk + 44} ${bottom - 12} L ${(pk + right) / 2} ${bottom - 9} L ${right} ${bottom - 15} L ${right} ${bottom} Z" fill="#0A0E13"/><path d="M ${pk - 14} ${bottom - 20} L ${pk} ${bottom - 34} L ${pk + 14} ${bottom - 20} L ${pk + 6} ${bottom - 22} L ${pk} ${bottom - 28} L ${pk - 6} ${bottom - 22} Z" fill="#39424E"/>`;
   const L = 13, cs = `stroke="${ACC}" stroke-width="1.5" fill="none" opacity="0.7"`;
   const cornersP =
     `<path d="M ${m + L} ${m} L ${m} ${m} L ${m} ${m + L}" ${cs}/>` +
@@ -263,7 +264,7 @@ function statsPanel(u, t = MONO) {
     .lpct{font:400 13px ${t.sans};fill:${t.muted}}
   </style></defs>
   <rect width="${W}" height="${H}" fill="#0D1117"/>
-  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" fill="#0B0F15"/>${flakes}${ridge}</g>
+  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" fill="#0B0F15"/>${flakes}</g>
   <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${H - 2 * m - 1}" rx="10" fill="none" stroke="${t.muted}" stroke-opacity="0.3"/>
   ${cornersP}
   ${statItems}
@@ -274,7 +275,62 @@ function statsPanel(u, t = MONO) {
 </svg>`;
 }
 
-export { statsCard, langCard, statsPanel, COLOR, NOIR, MONO };
+// ---- mountain-style contribution "landscape" ------------------------------
+function contribMountains(u, t = MONO) {
+  const weeks = (u.cal && u.cal.contributionCalendar && u.cal.contributionCalendar.weeks) || [];
+  let totals = weeks.map((w) => w.contributionDays.reduce((a, d) => a + d.contributionCount, 0));
+  if (totals.length < 2) totals = [0, 0];
+  const total = (u.cal && u.cal.contributionCalendar && u.cal.contributionCalendar.totalContributions) ?? totals.reduce((a, b) => a + b, 0);
+  const max = Math.max(1, ...totals);
+  const W = 850, H = 214, m = 6, px = 34, right = W - m, bottom = H - m;
+  const x0 = px, x1 = W - px, plotW = x1 - x0;
+  const baseY = H - m - 24, topY = m + 46, plotH = baseY - topY;
+  const X = (i) => x0 + (i / (totals.length - 1)) * plotW;
+  const Y = (v) => baseY - (v / max) * plotH;
+  const pt = (v, i, dy = 0) => `${X(i).toFixed(1)} ${(Y(v) + dy).toFixed(1)}`;
+  const frontPath = `M ${x0} ${baseY} L ${totals.map((v, i) => pt(v, i)).join(" L ")} L ${x1} ${baseY} Z`;
+  const ridgeLine = `M ${totals.map((v, i) => pt(v, i)).join(" L ")}`;
+  const smooth = totals.map((_, i) => (totals[Math.max(0, i - 1)] + totals[i] + totals[Math.min(totals.length - 1, i + 1)]) / 3);
+  const backPath = `M ${x0} ${baseY} L ${smooth.map((v, i) => pt(v, i, 13)).join(" L ")} L ${x1} ${baseY} Z`;
+  const snowY = topY + plotH * 0.3;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const flakes = Array.from({ length: 24 }, () => {
+    const x = rnd(m + 8, right - 8).toFixed(1), y = rnd(m + 6, topY + 8).toFixed(1), r = rnd(0.7, 1.6).toFixed(2);
+    const dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.24, 0.5).toFixed(2);
+    return `<circle class="sn" cx="${x}" cy="${y}" r="${r}" fill="#DCE3EC" opacity="${op}" style="animation-duration:${dur}s;animation-delay:${del}s"/>`;
+  }).join("");
+  const ACC = "#6C90C0", L = 13, cs = `stroke="${ACC}" stroke-width="1.5" fill="none" opacity="0.7"`;
+  const corners =
+    `<path d="M ${m + L} ${m} L ${m} ${m} L ${m} ${m + L}" ${cs}/><path d="M ${right - L} ${m} L ${right} ${m} L ${right} ${m + L}" ${cs}/>` +
+    `<path d="M ${m + L} ${bottom} L ${m} ${bottom} L ${m} ${bottom - L}" ${cs}/><path d="M ${right - L} ${bottom} L ${right} ${bottom} L ${right} ${bottom - L}" ${cs}/>`;
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contribution landscape — ${total} contributions in the last year">
+  <defs>
+    <clipPath id="scene"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" rx="10"/></clipPath>
+    <clipPath id="mt"><path d="${frontPath}"/></clipPath>
+    <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141B24"/><stop offset="1" stop-color="#0A0E13"/></linearGradient>
+    <style>
+    .sn{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}@keyframes fall{0%{transform:translateY(-12px);opacity:0}14%{opacity:.6}86%{opacity:.6}100%{transform:translateY(58px);opacity:0}}
+    .cap{font:600 11px ${t.sans};fill:${t.muted};letter-spacing:2px}.tot{font:700 12px ${t.sans};fill:${t.text};letter-spacing:.3px}
+    </style>
+  </defs>
+  <rect width="${W}" height="${H}" fill="#0D1117"/>
+  <g clip-path="url(#scene)">
+    <rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" fill="#0B0F15"/>
+    ${flakes}
+    <path d="${backPath}" fill="#0E141C"/>
+    <path d="${frontPath}" fill="url(#mg)"/>
+    <rect x="${x0}" y="${topY - 16}" width="${plotW}" height="${(snowY - topY + 16).toFixed(1)}" fill="#3A434F" clip-path="url(#mt)"/>
+    <path d="${ridgeLine}" fill="none" stroke="#59636F" stroke-width="1"/>
+    <line x1="${x0}" y1="${baseY}" x2="${x1}" y2="${baseY}" stroke="${t.muted}" stroke-opacity="0.22"/>
+  </g>
+  <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${H - 2 * m - 1}" rx="10" fill="none" stroke="${t.muted}" stroke-opacity="0.3"/>
+  ${corners}
+  <text class="cap" x="${px}" y="30">CONTRIBUTION LANDSCAPE · LAST YEAR</text>
+  <text class="tot" x="${W - px}" y="30" text-anchor="end">${total} contributions</text>
+</svg>`;
+}
+
+export { statsCard, langCard, statsPanel, contribMountains, COLOR, NOIR, MONO };
 
 // ---- main ------------------------------------------------------------------
 // Only runs when executed directly (not when imported for tests).
@@ -292,5 +348,6 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
   await writeFile("assets/stats-mono.svg", statsCard(user, MONO), "utf8");
   await writeFile("assets/top-langs-mono.svg", langCard(user, MONO), "utf8");
   await writeFile("assets/stats-panel-mono.svg", statsPanel(user, MONO), "utf8");
-  console.log("Generated color + noir + mono stat cards + mono panel in assets/");
+  await writeFile("assets/contrib-mountains.svg", contribMountains(user, MONO), "utf8");
+  console.log("Generated stat cards, mono panel, and contribution landscape in assets/");
 }

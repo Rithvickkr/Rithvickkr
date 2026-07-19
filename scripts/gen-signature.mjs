@@ -107,8 +107,8 @@ const tech = () => {
     ["Data", "PostgreSQL · SQLite · sqlite-vec · MongoDB · Supabase · Prisma · FAISS"],
     ["Tooling", "Git · Docker · GitHub Actions · Vercel · Weights & Biases · MLflow"],
   ];
-  const rh = 34, top = 26, m = 6, right = W - m;
-  const h = top + rows.length * rh + 40;       // extra room for the ridge
+  const rh = 34, top = 20, m = 6, right = W - m;
+  const h = top + rows.length * rh + 16;
   const bottom = h - m;
   const items = rows.map(([c, v], i) => {
     const y = top + i * rh + 20, delay = 0.1 + i * 0.07;
@@ -125,7 +125,7 @@ const tech = () => {
   </style>
 </defs>
   <rect width="${W}" height="${h}" fill="#0D1117"/>
-  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${h - 2 * m}" fill="#0B0F15"/>${flakes}${ridge(m, right, bottom, 620)}</g>
+  <g clip-path="url(#scene)"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${h - 2 * m}" fill="#0B0F15"/>${flakes}</g>
   <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${h - 2 * m - 1}" rx="8" fill="none" stroke="${C.line}"/>
   ${corners(m, right, bottom, 13)}
   ${items}
@@ -150,7 +150,7 @@ const files = {
   "sig-sec-tech.svg": secLabel("Tech Stack"),
   "sig-sec-stats.svg": secLabel("GitHub Stats"),
   "sig-sec-projects.svg": secLabel("Featured Projects"),
-  "sig-sec-contrib.svg": secLabel("Contribution Graph"),
+  "sig-sec-contrib.svg": secLabel("Contribution Landscape"),
 };
 for (const [f, svg] of Object.entries(files)) await writeFile(new URL(`./${f}`, import.meta.url), svg, "utf8");
 console.log("wrote", Object.keys(files).length, "signature assets");
