@@ -1,0 +1,52 @@
+<svg width="450" height="200" viewBox="0 0 450 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Most used languages for Rithvickkr">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06B6D4"/><stop offset="0.5" stop-color="#6366F1"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <clipPath id="reveal"><rect x="25" y="66" width="400" height="11"><animate attributeName="width" dur="1s" begin="0.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" keyTimes="0;1" values="0;400"/></rect></clipPath>
+    <clipPath id="round"><rect x="25" y="66" width="400" height="11" rx="5.5"/></clipPath>
+    <style>
+      .fade { animation: rise 0.7s ease both; }
+      @keyframes rise { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+      .title { font: 700 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #C9D1D9; }
+      .lname { font: 600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #C9D1D9; }
+      .lpct  { font: 400 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #8B949E; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="448" height="198" rx="12" fill="#0D1117" stroke="url(#accent)" stroke-width="1.5"/>
+  <text x="25" y="42" class="title">Most Used Languages</text>
+  <rect x="25" y="52" width="52" height="3" rx="1.5" fill="url(#accent)"/>
+  <rect x="25" y="66" width="400" height="11" rx="5.5" fill="#21262D"/>
+  <g clip-path="url(#round)"><g clip-path="url(#reveal)"><rect x="25.0" y="66" width="161.1" height="11" fill="#3178c6"/><rect x="186.1" y="66" width="120.8" height="11" fill="#3572A5"/><rect x="306.9" y="66" width="53.7" height="11" fill="#DA5B0B"/><rect x="360.6" y="66" width="40.3" height="11" fill="#563d7c"/><rect x="400.8" y="66" width="13.4" height="11" fill="#f1e05a"/><rect x="414.3" y="66" width="10.7" height="11" fill="#e34c26"/></g></g>
+  
+    <g class="fade" style="animation-delay:0.2s">
+      <circle cx="31" cy="104" r="6" fill="#3178c6"/>
+      <text x="45" y="108" class="lname">TypeScript</text>
+      <text x="210" y="108" class="lpct" text-anchor="end">40.3%</text>
+    </g>
+    <g class="fade" style="animation-delay:0.30000000000000004s">
+      <circle cx="241" cy="104" r="6" fill="#3572A5"/>
+      <text x="255" y="108" class="lname">Python</text>
+      <text x="420" y="108" class="lpct" text-anchor="end">30.2%</text>
+    </g>
+    <g class="fade" style="animation-delay:0.4s">
+      <circle cx="31" cy="132" r="6" fill="#DA5B0B"/>
+      <text x="45" y="136" class="lname">Jupyter Notebook</text>
+      <text x="210" y="136" class="lpct" text-anchor="end">13.4%</text>
+    </g>
+    <g class="fade" style="animation-delay:0.5s">
+      <circle cx="241" cy="132" r="6" fill="#563d7c"/>
+      <text x="255" y="136" class="lname">CSS</text>
+      <text x="420" y="136" class="lpct" text-anchor="end">10.1%</text>
+    </g>
+    <g class="fade" style="animation-delay:0.6000000000000001s">
+      <circle cx="31" cy="160" r="6" fill="#f1e05a"/>
+      <text x="45" y="164" class="lname">JavaScript</text>
+      <text x="210" y="164" class="lpct" text-anchor="end">3.4%</text>
+    </g>
+    <g class="fade" style="animation-delay:0.7s">
+      <circle cx="241" cy="160" r="6" fill="#e34c26"/>
+      <text x="255" y="164" class="lname">HTML</text>
+      <text x="420" y="164" class="lpct" text-anchor="end">2.7%</text>
+    </g>
+</svg>
