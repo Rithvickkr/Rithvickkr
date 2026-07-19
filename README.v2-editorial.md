@@ -27,30 +27,31 @@
 
 ```python
 class Rithvick:
-    def __init__(self):
-        self.role      = "AI/ML · Full-Stack · Backend Engineer"
-        self.education = "B.Tech, NIT Kurukshetra ('26)"
-        self.builds    = ["LLM & RAG pipelines", "agent tooling", "MCP servers", "the APIs around them"]
-        self.flagship  = "ContextVolt — local-first AI context manager"
-        self.claim     = "Every feature I shipped last internship reached production."
+    role      = "AI/ML · Full-Stack · Backend Engineer"
+    education = "B.Tech · NIT Kurukshetra ('26)"
+    focus     = ["LLM & RAG pipelines", "agent tooling", "MCP servers", "production APIs"]
+    flagship  = "ContextVolt · local-first AI context manager"
 ```
 
-I build **production AI systems end to end** — retrieval pipelines, agents, and the backends that
-serve them. I care about systems that actually ship: robust, measured, and running in prod.
-Currently deep in **RAG, MCP, and fine-tuning**. Open to collaboration on ambitious AI & open-source work.
+I build **production AI systems end to end** — retrieval pipelines, agents, and the backends that serve them: robust, measured, and running in prod. Currently deep in **RAG, MCP, and fine-tuning**, and open to collaboration on ambitious AI &amp; open-source work.
 
 <br />
 
 <!-- ==================== 02 · HIGHLIGHTS ==================== -->
 <img width="100%" src="./assets/sec-highlights.svg" alt="Highlights" />
 
-&nbsp;&nbsp;**Google · Gemini CLI** &nbsp;—&nbsp; Reported 6 issues and authored fixes for **2 priority-P1 bugs**: an uncapped output buffer causing OOM crashes, and silent symlink skipping in the file-search & grep tools.
-
-&nbsp;&nbsp;**Dobbe.ai** &nbsp;·&nbsp; *AI / Full-Stack Intern* &nbsp;—&nbsp; Built the AI-detection UI overlaying segmentation masks on dental X-rays, plus the Python/FastAPI services taking CV features from PoC → **production**.
-
-&nbsp;&nbsp;**Rocket.Chat** &nbsp;—&nbsp; Shipped an AI bot that detects FAQs in channel traffic and surfaces LLM-generated answers to moderators.
-
-&nbsp;&nbsp;**NIT Kurukshetra** &nbsp;·&nbsp; B.Tech, 2026.
+<dl>
+  <dt>&nbsp;🏆&nbsp;&nbsp;Google · Gemini CLI</dt>
+  <dd>Reported 6 issues and authored fixes for <strong>2 priority-P1 bugs</strong> — an uncapped output buffer causing OOM crashes, and silent symlink skipping in the file-search &amp; grep tools.</dd>
+  <br />
+  <dt>&nbsp;🦷&nbsp;&nbsp;Dobbe.ai &nbsp;·&nbsp; <sub>AI / Full-Stack Intern</sub></dt>
+  <dd>Built the AI-detection UI overlaying segmentation masks on dental X-rays, plus the Python / FastAPI services taking CV features from PoC → <strong>production</strong>.</dd>
+  <br />
+  <dt>&nbsp;💬&nbsp;&nbsp;Rocket.Chat</dt>
+  <dd>Shipped an AI bot that detects FAQs in channel traffic and surfaces LLM-generated answers to moderators.</dd>
+  <br />
+  <dt>&nbsp;🎓&nbsp;&nbsp;NIT Kurukshetra &nbsp;·&nbsp; <sub>B.Tech, 2026</sub></dt>
+</dl>
 
 <br />
 
