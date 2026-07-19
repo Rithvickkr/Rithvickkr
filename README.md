@@ -21,15 +21,7 @@
 
 <img width="100%" src="./assets/sig-sec-about.svg" alt="About Me" />
 
-```python
-class Rithvick:
-    role      = "AI/ML · Full-Stack · Backend Engineer"
-    education = "B.Tech, NIT Kurukshetra ('26)"
-    builds    = ["LLM & RAG pipelines", "agent tooling", "MCP servers", "the APIs around them"]
-    flagship  = "ContextVolt — local-first AI context manager"
-```
-
-I build **production AI systems end to end** — retrieval pipelines, agents, and the backends that serve them. Deep in **RAG, MCP, and fine-tuning**, and open to collaboration on ambitious AI &amp; open-source work.
+I'm an **AI/ML · Full-Stack · Backend** engineer who builds **production AI systems end to end** — LLM &amp; RAG pipelines, agent tooling, and MCP servers, plus the FastAPI / Node backends that serve them. My flagship, **ContextVolt**, is a local-first AI context manager built on a hybrid retrieval pipeline. I care about systems that actually ship — robust, measured, and running in prod — and I'm currently deep in **RAG, MCP, and fine-tuning**, open to collaboration on ambitious AI &amp; open-source work.
 
 **Recent highlights**
 
