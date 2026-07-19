@@ -54,7 +54,7 @@ query($login:String!, $from:DateTime!){
       contributionCalendar { totalContributions }
     }
     cal: contributionsCollection {
-      contributionCalendar { totalContributions weeks { contributionDays { contributionCount } } }
+      contributionCalendar { totalContributions weeks { firstDay contributionDays { contributionCount } } }
     }
   }
 }`;
@@ -279,12 +279,14 @@ function statsPanel(u, t = MONO) {
 function contribMountains(u, t = MONO) {
   const weeks = (u.cal && u.cal.contributionCalendar && u.cal.contributionCalendar.weeks) || [];
   let totals = weeks.map((w) => w.contributionDays.reduce((a, d) => a + d.contributionCount, 0));
-  if (totals.length < 2) totals = [0, 0];
+  const firstDays = weeks.map((w) => w.firstDay);
+  if (totals.length < 2) { totals = [0, 0]; firstDays.length = 0; }
   const total = (u.cal && u.cal.contributionCalendar && u.cal.contributionCalendar.totalContributions) ?? totals.reduce((a, b) => a + b, 0);
   const max = Math.max(1, ...totals);
-  const W = 850, H = 214, m = 6, px = 34, right = W - m, bottom = H - m;
+  const peakIdx = totals.indexOf(max);
+  const W = 850, H = 232, m = 6, px = 36, right = W - m, bottom = H - m;
   const x0 = px, x1 = W - px, plotW = x1 - x0;
-  const baseY = H - m - 24, topY = m + 46, plotH = baseY - topY;
+  const baseY = H - m - 32, topY = m + 58, plotH = baseY - topY;
   const X = (i) => x0 + (i / (totals.length - 1)) * plotW;
   const Y = (v) => baseY - (v / max) * plotH;
   const pt = (v, i, dy = 0) => `${X(i).toFixed(1)} ${(Y(v) + dy).toFixed(1)}`;
@@ -293,24 +295,37 @@ function contribMountains(u, t = MONO) {
   const smooth = totals.map((_, i) => (totals[Math.max(0, i - 1)] + totals[i] + totals[Math.min(totals.length - 1, i + 1)]) / 3);
   const backPath = `M ${x0} ${baseY} L ${smooth.map((v, i) => pt(v, i, 13)).join(" L ")} L ${x1} ${baseY} Z`;
   const snowY = topY + plotH * 0.3;
+  // month axis
+  const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let lastMon = -1; const ticks = [];
+  firstDays.forEach((d, i) => { if (!d) return; const mo = new Date(d + "T00:00:00Z").getUTCMonth(); if (mo !== lastMon) { ticks.push({ x: X(i), label: MON[mo] }); lastMon = mo; } });
+  const monthLabels = ticks.map(({ x, label }) => `<text class="mo" x="${Math.min(Math.max(x, x0 + 10), x1 - 10).toFixed(1)}" y="${baseY + 19}" text-anchor="middle">${label}</text>`).join("");
+  const monthMarks = ticks.map(({ x }) => `<line x1="${x.toFixed(1)}" y1="${baseY}" x2="${x.toFixed(1)}" y2="${baseY + 4}" stroke="${t.muted}" stroke-opacity="0.3"/>`).join("");
+  // busiest-week marker
+  const peakX = X(peakIdx), peakY = Y(max);
+  const peakMark = `<circle cx="${peakX.toFixed(1)}" cy="${peakY.toFixed(1)}" r="2.2" fill="#6C90C0"/><text class="pk" x="${peakX.toFixed(1)}" y="${(peakY - 8).toFixed(1)}" text-anchor="middle">${max}/wk</text>`;
   const rnd = (a, b) => a + Math.random() * (b - a);
   const flakes = Array.from({ length: 24 }, () => {
-    const x = rnd(m + 8, right - 8).toFixed(1), y = rnd(m + 6, topY + 8).toFixed(1), r = rnd(0.7, 1.6).toFixed(2);
-    const dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.24, 0.5).toFixed(2);
+    const x = rnd(m + 8, right - 8).toFixed(1), y = rnd(m + 6, topY + 6).toFixed(1), r = rnd(0.7, 1.6).toFixed(2);
+    const dur = rnd(6, 13).toFixed(1), del = (-rnd(0, 13)).toFixed(1), op = rnd(0.24, 0.48).toFixed(2);
     return `<circle class="sn" cx="${x}" cy="${y}" r="${r}" fill="#DCE3EC" opacity="${op}" style="animation-duration:${dur}s;animation-delay:${del}s"/>`;
   }).join("");
   const ACC = "#6C90C0", L = 13, cs = `stroke="${ACC}" stroke-width="1.5" fill="none" opacity="0.7"`;
   const corners =
     `<path d="M ${m + L} ${m} L ${m} ${m} L ${m} ${m + L}" ${cs}/><path d="M ${right - L} ${m} L ${right} ${m} L ${right} ${m + L}" ${cs}/>` +
     `<path d="M ${m + L} ${bottom} L ${m} ${bottom} L ${m} ${bottom - L}" ${cs}/><path d="M ${right - L} ${bottom} L ${right} ${bottom} L ${right} ${bottom - L}" ${cs}/>`;
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contribution landscape — ${total} contributions in the last year">
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contribution landscape — ${total} contributions in the last year; each peak is one week, taller means more contributions">
   <defs>
     <clipPath id="scene"><rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" rx="10"/></clipPath>
     <clipPath id="mt"><path d="${frontPath}"/></clipPath>
     <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141B24"/><stop offset="1" stop-color="#0A0E13"/></linearGradient>
     <style>
     .sn{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}@keyframes fall{0%{transform:translateY(-12px);opacity:0}14%{opacity:.6}86%{opacity:.6}100%{transform:translateY(58px);opacity:0}}
-    .cap{font:600 11px ${t.sans};fill:${t.muted};letter-spacing:2px}.tot{font:700 12px ${t.sans};fill:${t.text};letter-spacing:.3px}
+    .cap{font:700 12px ${t.sans};fill:${t.text};letter-spacing:2.4px}
+    .sub{font:400 10.5px ${t.sans};fill:${t.muted};letter-spacing:.3px}
+    .tot{font:700 12px ${t.sans};fill:${t.text};letter-spacing:.3px}
+    .mo{font:500 9.5px ${t.sans};fill:${t.muted};letter-spacing:.6px}
+    .pk{font:600 9.5px ${t.sans};fill:#8AA6C8;letter-spacing:.3px}
     </style>
   </defs>
   <rect width="${W}" height="${H}" fill="#0D1117"/>
@@ -321,12 +336,17 @@ function contribMountains(u, t = MONO) {
     <path d="${frontPath}" fill="url(#mg)"/>
     <rect x="${x0}" y="${topY - 16}" width="${plotW}" height="${(snowY - topY + 16).toFixed(1)}" fill="#3A434F" clip-path="url(#mt)"/>
     <path d="${ridgeLine}" fill="none" stroke="#59636F" stroke-width="1"/>
-    <line x1="${x0}" y1="${baseY}" x2="${x1}" y2="${baseY}" stroke="${t.muted}" stroke-opacity="0.22"/>
+    ${peakMark}
+    <line x1="${x0}" y1="${baseY}" x2="${x1}" y2="${baseY}" stroke="${t.muted}" stroke-opacity="0.28"/>
+    ${monthMarks}
   </g>
   <rect x="${m}.5" y="${m}.5" width="${W - 2 * m - 1}" height="${H - 2 * m - 1}" rx="10" fill="none" stroke="${t.muted}" stroke-opacity="0.3"/>
   ${corners}
-  <text class="cap" x="${px}" y="30">CONTRIBUTION LANDSCAPE · LAST YEAR</text>
-  <text class="tot" x="${W - px}" y="30" text-anchor="end">${total} contributions</text>
+  <text class="cap" x="${px}" y="28">CONTRIBUTION LANDSCAPE</text>
+  <text class="sub" x="${px}" y="45">each peak = one week · height = contributions that week</text>
+  <text class="tot" x="${W - px}" y="28" text-anchor="end">${total} contributions</text>
+  <text class="sub" x="${W - px}" y="45" text-anchor="end">last 12 months</text>
+  ${monthLabels}
 </svg>`;
 }
 
