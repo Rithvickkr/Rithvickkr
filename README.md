@@ -44,15 +44,7 @@ class Rithvick:
 
 <img width="100%" src="./assets/sig-sec-stats.svg" alt="GitHub Stats" />
 
-<p align="center">
-  <img width="445" src="./assets/stats-mono.svg" alt="GitHub stats" />
-  &nbsp;
-  <img width="445" src="./assets/top-langs-mono.svg" alt="Most used languages" />
-</p>
-
-<p align="center">
-  <img height="195" src="https://github-readme-streak-stats.herokuapp.com/?user=Rithvickkr&hide_border=true&background=0D1117&stroke=8B949E&ring=EAECEF&fire=EAECEF&currStreakLabel=C9D1D9&sideLabels=8B949E&dates=5C636E&currStreakNum=EAECEF&sideNums=C9D1D9" alt="streak" />
-</p>
+<img width="100%" src="./assets/stats-panel-mono.svg" alt="GitHub stats — stars, repositories, followers, commits, PRs, contributions, and most-used languages" />
 
 <br />
 

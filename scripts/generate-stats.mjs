@@ -202,7 +202,59 @@ function langCard(u, t = COLOR) {
 </svg>`;
 }
 
-export { statsCard, langCard, COLOR, NOIR, MONO };
+// ---- full-width combined panel (stats + languages in one element) ---------
+function statsPanel(u, t = MONO) {
+  const totalStars = u.repositories.nodes.reduce((s, r) => s + r.stargazerCount, 0);
+  const commits = u.contributionsCollection.totalCommitContributions + u.contributionsCollection.restrictedContributionsCount;
+  const cells = [
+    ["Total Stars", totalStars], ["Repositories", u.repositories.totalCount], ["Followers", u.followers.totalCount],
+    [`Commits (${new Date().getUTCFullYear()})`, commits], ["Pull Requests", u.pullRequests.totalCount],
+    ["Contributions", u.contributionsCollection.contributionCalendar.totalContributions],
+  ];
+  const totals = new Map(), colors = new Map();
+  for (const repo of u.repositories.nodes) for (const e of repo.languages.edges) {
+    totals.set(e.node.name, (totals.get(e.node.name) || 0) + e.size);
+    if (e.node.color) colors.set(e.node.name, e.node.color);
+  }
+  const sum = [...totals.values()].reduce((a, b) => a + b, 0) || 1;
+  const top = [...totals.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([name, size], i) => ({
+    name, pct: (size / sum) * 100, color: t.ramp ? t.ramp[i % t.ramp.length] : (colors.get(name) || FALLBACK_COLORS[i % FALLBACK_COLORS.length]),
+  }));
+
+  const W = 850, H = 230, px = 36, inner = W - 2 * px, colW = inner / 6;
+  const statItems = cells.map(([l, v], i) => {
+    const x = px + colW * i + colW / 2;
+    return `<g class="fade" style="animation-delay:${(0.1 + i * 0.06).toFixed(2)}s"><text class="num" x="${x.toFixed(1)}" y="64" text-anchor="middle">${fmt(v)}</text><text class="lbl" x="${x.toFixed(1)}" y="86" text-anchor="middle">${esc(l)}</text></g>`;
+  }).join("");
+  const barX = px, barY = 150, barW = inner, barH = 10;
+  let off = 0;
+  const segs = top.map((l) => { const w = (l.pct / 100) * barW; const s = `<rect x="${(barX + off).toFixed(1)}" y="${barY}" width="${w.toFixed(1)}" height="${barH}" fill="${l.color}"/>`; off += w; return s; }).join("");
+  const lw = inner / 3;
+  const legend = top.map((l, i) => {
+    const c = i % 3, r = Math.floor(i / 3), x = px + c * lw, y = 190 + r * 24;
+    return `<g class="fade" style="animation-delay:${(0.2 + i * 0.06).toFixed(2)}s"><circle cx="${x + 5}" cy="${y - 4}" r="5" fill="${l.color}"/><text class="lname" x="${x + 18}" y="${y}">${esc(l.name)}</text><text class="lpct" x="${x + lw - 26}" y="${y}" text-anchor="end">${l.pct.toFixed(1)}%</text></g>`;
+  }).join("");
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub statistics for ${esc(u.login)}">
+  <defs><style>
+    .fade{animation:rise .6s ease both}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    .num{font:700 30px ${t.serif};fill:${t.num}}
+    .lbl{font:400 11.5px ${t.sans};fill:${t.muted};letter-spacing:.4px}
+    .llabel{font:600 11px ${t.sans};fill:${t.muted};letter-spacing:2px}
+    .lname{font:600 13px ${t.sans};fill:${t.text}}
+    .lpct{font:400 13px ${t.sans};fill:${t.muted}}
+  </style></defs>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="${t.card}" stroke="${t.muted}" stroke-opacity="0.26"/>
+  ${statItems}
+  <line x1="${px}" y1="112" x2="${W - px}" y2="112" stroke="${t.muted}" stroke-opacity="0.16"/>
+  <text class="llabel" x="${px}" y="136">MOST USED LANGUAGES</text>
+  <clipPath id="rnd"><rect x="${barX}" y="${barY}" width="${barW}" height="${barH}" rx="5"/></clipPath>
+  <g clip-path="url(#rnd)">${segs}</g>
+  ${legend}
+</svg>`;
+}
+
+export { statsCard, langCard, statsPanel, COLOR, NOIR, MONO };
 
 // ---- main ------------------------------------------------------------------
 // Only runs when executed directly (not when imported for tests).
@@ -219,5 +271,6 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
   await writeFile("assets/top-langs-noir.svg", langCard(user, NOIR), "utf8");
   await writeFile("assets/stats-mono.svg", statsCard(user, MONO), "utf8");
   await writeFile("assets/top-langs-mono.svg", langCard(user, MONO), "utf8");
-  console.log("Generated color + noir + mono stat cards in assets/");
+  await writeFile("assets/stats-panel-mono.svg", statsPanel(user, MONO), "utf8");
+  console.log("Generated color + noir + mono stat cards + mono panel in assets/");
 }
