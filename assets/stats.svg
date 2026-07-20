@@ -36,7 +36,7 @@
       <text x="245" y="192" class="lbl" text-anchor="middle">Pull Requests</text>
     </g>
     <g class="fade" style="animation-delay:0.65s">
-      <text x="395" y="172" class="num" text-anchor="middle">317</text>
+      <text x="395" y="172" class="num" text-anchor="middle">325</text>
       <text x="395" y="192" class="lbl" text-anchor="middle">Contributions</text>
     </g>
 </svg>
